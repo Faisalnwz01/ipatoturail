@@ -1,0 +1,59 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+<form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="name" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="child.name">
+                    <label class="active" for="first_name">Childs Name</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+              <label class="active">Birthdate</label>
+              <input id='dob' type="date" class="datepicker col s12" ng-model="child.dob">
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="ssn" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="child.ssn">
+                    <label class="active" for="address2">Social Security Number</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s5">
+                    <textarea id="conditions" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.conditions"></textarea>
+                    <label class="active" for="city">Existing Diseases or Medical Conditions if any</label>
+                </div>
+                 <div class="input-field col s5">
+                    <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.sympotoms"></textarea>
+                    <label class="active" for="city">Breif Description of The Child's Symptoms</label>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+
+                <!-- <div class="input-field col s6"> -->
+                <button class="col s5 btn waves-effect waves-light red " type="button" name="action" ng-class="buttonColor" ng-click="resetForm()">Clear Form
+                </button>
+                <!-- </div> -->
+                <!-- <div class="input-field col s6"> -->
+                <button class=" col s5 btn waves-effect waves-light right" ng-click="submitChildInfo()" name="action" ng-class="buttonColor">Confirm
+                </button>
+              </form>
+
+  <form action="" method="POST">
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+          data-amount="2000"
+          data-name="Demo Site"
+          data-description="2 widgets ($20.00)"
+          data-image="/128x128.png">
+        </script>
+</form>
+                <!-- </div> -->
+
+            </div>
+            </div>

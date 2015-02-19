@@ -83,14 +83,15 @@ exports.changePassword = function(req, res, next) {
 
 //eastpost confirm address
 exports.easyPost = function(req, res) {
+  console.log(req.body)
   var fromAddress = {
-    name: "EasyPost",
-    street1: "164 Townsend St",
-    street2: "#1",
-    city: "San Francisco",
-    state: "CA",
-    zip: "94107",
-    phone: "415-123-4567"
+    name: req.body.name,
+    street1: req.body.street1,
+    street2: req.body.street2,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
+    phone: req.body.phone
 };
 
 // verify address
@@ -98,6 +99,7 @@ easypost.Address.create(fromAddress, function(err, fromAddress) {
     fromAddress.verify(function(err, response) {
         if (err) {
             console.log('Address is invalid.');
+            res.send("Address is invalid")
         } else if (response.message !== undefined && response.message !== null) {
             console.log('Address is valid but has an issue: ', response.message);
             var verifiedAddress = response.address;

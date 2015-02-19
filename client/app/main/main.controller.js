@@ -1,30 +1,43 @@
 'use strict';
 
 angular.module('babyDoctorApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
+    .controller('MainCtrl', function($scope, $http, socket, $state) {
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+        // $http.post('/api/users/address').then(function  (data) {
+        //   console.log(data)
+        //   // body...
+        // })
+
+        $scope.resetForm = function() {
+            $scope.address = {
+                name: "",
+                street1: "",
+                street2: "",
+                city: "",
+                state: "",
+                zip: "",
+                phone: ""
+            }
+
+        }
+
+        $scope.address = {
+            name: "",
+            street1: "",
+            street2: "",
+            city: "",
+            state: "",
+            zip: "",
+            phone: ""
+        }
+        $scope.submit = function() {
+            $http.post('/api/users/address', $scope.address).then(function(data) {
+                if (data.data === "Address is invalid") {
+                    console.log("Address is invalid")
+                } else {
+                    console.log("Address Is Goood")
+                    $state.go('childInfo')
+                }
+            })
+        }
     });
-
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
-
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
-    $http.post('/api/users/address').then(function  (data) {
-      console.log(data)
-      // body...
-    })
-    $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
-    });
-  });
