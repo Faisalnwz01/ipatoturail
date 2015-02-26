@@ -3,10 +3,13 @@
 angular.module('babyDoctorApp')
     .controller('MainCtrl', function($scope, $http, socket, $state) {
 
-        // $http.post('/api/users/address').then(function  (data) {
-        //   console.log(data)
-        //   // body...
-        // })
+// $http.get('/api/users/doctors/get').then(function(data){
+//     console.log(data, 'asfffffffffffffffff')
+// })
+
+
+
+
 
         $scope.resetForm = function() {
             $scope.address = {
