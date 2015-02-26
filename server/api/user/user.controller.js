@@ -6,10 +6,33 @@ var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 var apiKey = 'i9bmu2obdkr7H47YgfzhmA';
 var easypost = require('node-easypost')(apiKey);
+// var TrueVault = require('truevaultjs');
+// var client = new TrueVault('f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518');
 
 var validationError = function(res, err) {
   return res.json(422, err);
 };
+
+exports.test = function(){
+  console.log('working')
+}
+
+// exports.trueVault = function(){
+//   var vaultId = 'd66fc65c-6d22-41f9-953a-612c45c7082e '
+// var mydoc = { secure: 'data', isPHI: true };
+// client.json.create(vaultId,mydoc,function(err,result) {
+//     console.log(result.document_id);
+// });
+
+// mydoc.newField = 12345;
+// client.json.update(vaultId,mydoc,function(err) {});
+
+// // client.json.get(vaultId,documentId,function(err,document) {
+// //     assert.equal(mydoc,document);
+// // });
+
+// // client.json.del(vaultId,documentId,function(err) {});
+// }
 
 /**
  * Get list of users
@@ -28,13 +51,16 @@ exports.index = function(req, res) {
 exports.create = function (req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
+  if(!newUser.role){
   newUser.role = 'user';
+}
   newUser.save(function(err, user) {
     if (err) return validationError(res, err);
     var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
     res.json({ token: token });
   });
 };
+
 
 /**
  * Get a single user
