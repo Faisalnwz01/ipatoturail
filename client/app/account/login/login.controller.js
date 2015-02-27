@@ -1,16 +1,12 @@
 'use strict';
 
 angular.module('babyDoctorApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window, $http) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $window, $http, catalyze) {
 
-$scope.swagger =function(){
+var apikey = Config.catalyze_apikey;
+    var host = "https://api.catalyze.io";
 
-  $http.post('https://api.truevault.com/v1/users', 
-    {headers: { Authorization: 'f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518'}})
-    .then(function(response) {
-         console.log(response)
-    })
-}
+
 
 
 
