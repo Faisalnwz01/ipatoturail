@@ -2,7 +2,7 @@
 
 angular.module('babyDoctorApp')
   .controller('SignupCtrl', function ($scope, Auth, $location, $window) {
-    $scope.user = {};
+    $scope.users = {};
     $scope.errors = {};
 
     $scope.register = function(form) {
@@ -10,13 +10,13 @@ angular.module('babyDoctorApp')
 
       if(form.$valid) {
         Auth.createUser({
-          name: $scope.user.name,
-          email: $scope.user.email,
-          password: $scope.user.password
+          name: $scope.users.name,
+          email: $scope.users.email,
+          password: $scope.users.password
         })
         .then( function() {
           // Account created, redirect to home
-          $location.path('/');
+          $location.path('/profileInfo');
         })
         .catch( function(err) {
           err = err.data;
@@ -34,4 +34,6 @@ angular.module('babyDoctorApp')
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };
+
+    $scope.isLoggedIn = Auth.isLoggedIn;
   });

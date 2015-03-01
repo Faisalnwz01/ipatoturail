@@ -2,7 +2,7 @@
 
 angular.module('babyDoctorApp')
   .controller('ChildInfoCtrl', function ($scope, $http, $state) {
-    $('.datepicker').pickadate();
+    // $('.datepicker').pickadate();
 
       $scope.child = {
     name: "",
