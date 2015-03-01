@@ -5,14 +5,14 @@ angular.module('babyDoctorApp')
 $scope.isLoggedIn = Auth.isLoggedIn;
 
 // var apiKey = "f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518"
-// var vaultId = "d66fc65c-6d22-41f9-953a-612c45c7082e"
+// var vaultId = ""
 // var json = 'sadfasfsfsfafs'
 
 // var doc = {
 //  method: 'POST',
-//  url: "https://api.truevault.com/v1/vaults/"+ vaultId+"/documents/",
-//  headers: { 
-//   'Authorization' : 'Basic ' + btoa(apiKey + ":"), 
+//  url: "https://api.truevault.com/v1/vaults/d66fc65c-6d22-41f9-953a-612c45c7082e/documents",
+//  headers: {
+//   'Authorization' : 'Basic ' + btoa(apiKey + ":"),
 //   'Content-Type': 'multipart/form-data'
 //  },
 //   params: { document: btoa(JSON.stringify(json))}
@@ -22,7 +22,7 @@ $scope.isLoggedIn = Auth.isLoggedIn;
 //  method: 'GET',
 //  url: "https://api.truevault.com/v1/vaults/"+ vaultId + "/documents/",
 //  headers: {
-//    'Authorization' : 'Basic ' + btoa(apiKey + ":"), 
+//    'Authorization' : 'Basic ' + btoa(apiKey + ":"),
 //    'Content-Type': 'multipart/form-data'
 //  }
 
@@ -32,12 +32,12 @@ $scope.isLoggedIn = Auth.isLoggedIn;
 //  method: 'POST',
 //  url: 'https://api.truevault.com/v1/users',
 //  headers: {
-//   'Authorization' : 'Basic ' + btoa(apiKey + ":"), 
+//   'Authorization' : 'Basic ' + btoa(apiKey + ":"),
 //    'Content-Type': 'multipart/form-data'
 //  },
 
-// params: {username: 'asdfasfd', 
-//          'password': 'swagasgsdf', 
+// params: {username: 'asdfasfd',
+//          'password': 'swagasgsdf',
 //         }
 // }
 

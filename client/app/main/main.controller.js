@@ -56,12 +56,12 @@ angular.module('babyDoctorApp')
 //  method: 'POST',
 //  url: 'https://api.truevault.com/v1/users',
 //  headers: {
-//   'Authorization' : 'Basic ' + btoa(apiKey + ":"), 
+//   'Authorization' : 'Basic ' + btoa(apiKey + ":"),
 //    'Content-Type': 'multipart/form-data'
 //  },
 
-// params: {username: 'asdfasfd', 
-//          'password': 'swagasgsdf', 
+// params: {username: 'asdfasfd',
+//          'password': 'swagasgsdf',
 //         }
 // }
 
@@ -69,7 +69,7 @@ angular.module('babyDoctorApp')
 
 
 // //Oauth Starts
-//     $scope.login = function(form) 
+//     $scope.login = function(form)
 //       $scope.submitted = true;
 
 //       if(form.$valid) {
