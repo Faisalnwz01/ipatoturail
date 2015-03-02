@@ -55,12 +55,14 @@ console.log($scope.getCurrentUser.user_id)
             });
         };
 
+          $scope.truevaultPostDoc();
+
         $scope.submit = function() {
             $http.post('/api/users/address', $scope.address).then(function(data) {
                 if (data.data === "Address is invalid") {
                     console.log("Address is invalid")
                 } else {
-                    $scope.truevaultPostDoc();
+
                     console.log("Address Is Goood")
                     $state.go('childInfo')
                 }
