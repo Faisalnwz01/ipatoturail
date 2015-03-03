@@ -17,7 +17,8 @@
     "angular-socket-io": "~0.6.0",
     "angular-ui-router": "~0.2.10",
     "materialize": "~0.95.2",
-    "catalyze": "~1.0.2"
+    "catalyze": "~1.0.2",
+    "angular-payments": "*"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",

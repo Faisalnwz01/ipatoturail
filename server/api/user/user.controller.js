@@ -6,12 +6,45 @@ var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 var apiKey = 'i9bmu2obdkr7H47YgfzhmA';
 var easypost = require('node-easypost')(apiKey);
+var stripe = require("stripe")("sk_test_Bkp3kD47ARbEfHuGo4twLFPR");
 // var TrueVault = require('truevaultjs');
 // var client = new TrueVault('f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518');
 
 var validationError = function(res, err) {
   return res.json(422, err);
 };
+
+///stripe payments 
+exports.stripe = function (req, res) {
+  console.log("***********", req.body, '*********************************')
+  var stripeToken = req.body.id;
+  console.log(req.body.time, "timeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+
+stripe.customers.create({
+  source: stripeToken,
+  description: 'payinguser@example.com'
+}).then(function(customer) {
+  // console.log(customer, "cusomter")
+  return stripe.charges.create({
+    amount: 1000, // amount in cents, again
+    currency: "usd",
+    customer: customer.id
+  });
+}).then(function(charge) {
+  console.log("Chargeeeeeeeeeeeeeeeeeeeeeeeeeeeee", charge, "Chargeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+  // saveStripeCustomerId(user, charge.customer);
+});
+
+// // Later...
+// var customerId = getStripeCustomerId(user);
+
+// stripe.charges.create({
+//   amount: 1500, // amount in cents, again
+//   currency: "usd",
+//   customer: customerId
+// });
+}
+
 
 exports.test = function(){
   console.log('working')
