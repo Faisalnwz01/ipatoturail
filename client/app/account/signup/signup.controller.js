@@ -4,24 +4,45 @@ angular.module('babyDoctorApp')
   .controller('SignupCtrl', function($scope, Auth, $location, $window, $http) {
       $scope.users = {};
       $scope.errors = {};
+        var apiKey = "f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518"
+        var vaultId = "6ee2c09a-c2cd-4970-ac08-5900827afa52"
 
+
+$scope.update = function(res){
+        var updateGroup = {
+          method: 'PUT',
+          url: 'https://api.truevault.com/v1/groups/' + $scope.groupId,
+          headers: {
+            'Authorization': 'Basic ' + btoa(apiKey + ":"),
+            'Content-Type': 'multipart/form-data'
+          },
+
+          params: {
+            user_ids: res.user.user_id, 
+            operation: 'APPEND'
+          }
+        }
+        console.log($scope.groupId)
+          $http(updateGroup).success(function(res) {
+            console.log(res)
+          }).error(function(err) {
+            console.log(err)
+          })
+
+}
 
       $scope.group = function() {
-        var apiKey = "f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518"
-        var vaultId = "d66fc65c-6d22-41f9-953a-612c45c7082e"
+      
 
-            var pol = JSON.stringify([{
-              "Activities": "C",
+            var policy = JSON.stringify([{
+              "Activities": "CRU",
               "Resources": [
-                "Vault::"
+                "Vault::", "Vault::.*::Document::.*"
               ]
             }])
        
          
-          var fin =btoa(pol)
-          
-
-
+     policy =btoa(policy)
         var group = {
           method: 'POST',
           url: 'https://api.truevault.com/v1/groups',
@@ -31,13 +52,14 @@ angular.module('babyDoctorApp')
           },
 
           params: {
-            name: "yourtrippingsonjkhkjhklhkljh",
-            "policy": fin
+            name: $scope.users.name + " group",
+            "policy": policy
           }
         }
 
           $http(group).success(function(res) {
             console.log(res)
+            $scope.groupId = res.group.group_id; 
           }).error(function(err) {
             console.log(err)
           })
@@ -45,31 +67,8 @@ angular.module('babyDoctorApp')
 
 
         $scope.register = function() {
-          // var apiKey = "f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518"
-          // var vaultId = "d66fc65c-6d22-41f9-953a-612c45c7082e"
-
-          //    var group = {
-          //     method: 'POST',
-          //     url: 'https://api.truevault.com/v1/groups',
-          //     headers: {
-          //         'Authorization': 'Basic ' + btoa(apiKey + ":"),
-          //         'Content-Type': 'multipart/form-data'
-          //     },
-
-          //     params: {
-          //       name: "yourtrippingson",     
-          //       policy: { "Resources": ["Vault::.*", "Vault::.*::Document::.*"],
-          //      "Activities": "CRUD"
-          //     }
-          //   }
-          // }
-
-          // $http(group).success(function(res){
-          //   console.log(res)
-          // })
+          $scope.group()
           var apiKey = "f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518"
-          var vaultId = "d66fc65c-6d22-41f9-953a-612c45c7082e"
-
 
           var req = {
             method: 'POST',
@@ -87,16 +86,21 @@ angular.module('babyDoctorApp')
 
           $http(req).success(function(res) {
             console.log(res)
+             $scope.update(res)
             Auth.createUser({
                 name: $scope.users.name,
                 email: $scope.users.email,
                 password: $scope.users.password,
-                user_id: res.user.user_id
+                user_id: res.user.user_id,
+                api_key: res.user.api_key
               })
               .then(function() {
 
+
+
+
                 // Account created, redirect to home
-                $location.path('/profileInfo');
+               $location.path('/profileInfo');
               })
               .catch(function(err) {
                 err = err.data;

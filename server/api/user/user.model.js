@@ -13,6 +13,7 @@ var UserSchema = new Schema({
     default: 'user'
   },
   user_id: String,
+  api_key: String,
   hashedPassword: String,
   provider: String,
   salt: String,
