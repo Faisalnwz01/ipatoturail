@@ -1,8 +1,15 @@
 'use strict';
 
 angular.module('babyDoctorApp')
-  .controller('ChildInfoCtrl', function ($scope, $http, $state) {
+  .controller('ChildInfoCtrl', function ($scope, Auth, $http, $state, $cookieStore) {
     // $('.datepicker').pickadate();
+
+$scope.getCurrentUser = Auth.getCurrentUser();
+
+
+$scope.token = $cookieStore.get('token')
+
+
 
       $scope.child = {
     name: "",
@@ -12,14 +19,17 @@ angular.module('babyDoctorApp')
     symptoms: ""
   }
 
-  $scope.truevaultPostDoc = function() {
 
-            var apiKey = "f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518"
+        $scope.truevaultPostDoc = function() {
+            $cookieStore.remove('token')
+
+            $cookieStore.remove('token')
+            var apiKey = $scope.getCurrentUser.api_key
             var doc = {
                 method: 'POST',
-                url: "https://api.truevault.com/v1/vaults/d66fc65c-6d22-41f9-953a-612c45c7082e/documents",
+                url: "https://api.truevault.com/v1/vaults/6ee2c09a-c2cd-4970-ac08-5900827afa52/documents",
                 headers: {
-                    'Authorization': 'Basic ' + btoa(apiKey + ":"),
+                    'Authorization':'Basic ' + btoa(apiKey + ":") ,
                     'Content-Type': 'multipart/form-data'
                 },
                 params: {
@@ -29,6 +39,9 @@ angular.module('babyDoctorApp')
 
             $http(doc).success(function(data) {
                 console.log(data)
+                console.log($scope.token)
+               $cookieStore.put('token', $scope.token);
+
             }).error(function(data) {
                 console.log(data)
             });
