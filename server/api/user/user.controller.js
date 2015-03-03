@@ -16,9 +16,25 @@ var validationError = function(res, err) {
 
 ///stripe payments 
 exports.stripe = function (req, res) {
-  console.log("***********", req.body, '*********************************')
   var stripeToken = req.body.id;
-  console.log(req.body.time, "timeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+  var time = 24
+  console.log(time, 'timeeeeeeeeeeeeeeeeeeeeeee')
+
+  if(time >= 17 && time < 20){
+    console.log("charge $250")
+  } 
+
+  else if( time >=20 && time < 24){
+      console.log("charge $350")
+  }
+
+  else if (time >= 24 && time < 2){
+    console.log("change $450")
+  }
+
+  else{
+    console.log("sorry we are not open now")
+  }
 
 stripe.customers.create({
   source: stripeToken,

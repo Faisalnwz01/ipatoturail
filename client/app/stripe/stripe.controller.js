@@ -16,7 +16,9 @@ angular.module('babyDoctorApp')
           var token = response.id
           // var timenow= Date()
           // var charedtotal= {token: token, time:timenow}
-var time = Date()
+var time = new Date()
+
+          time = time.getHours()
 
           response.time =time
           console.log(time, "timeeeeeeeeeeeeeeeeee")
