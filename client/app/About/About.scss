@@ -1,0 +1,107 @@
+
+/*Doctors Block*/
+.doctors {
+  padding: 30px 0;
+  padding-bottom:1px;
+  box-shadow: inset 0 0 4px #eee;
+  font-family: 'Open Sans', sans-serif;
+  color:#8E959C;
+}
+
+.doctors h1 {
+  font-size:50px;
+  font-weight:300 !important;
+  color:#3498db;
+}
+.doctors h4 {
+  line-height: 1.4em;
+}
+.doctors p {
+  margin-bottom: 0;
+  color:#8E959C;
+}
+.doctors span {
+  color: #666;
+  display: block;
+  font-size: 28px;
+  font-weight: 200;
+  line-height: 35px;
+  margin-bottom: 12px;
+  font-family: 'Open Sans', sans-serif;
+}
+.doctors a.btn-go {
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 22px;
+  font-weight: bold;
+  background: #72c02c;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 28px 9px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 #51a00b;
+}
+.doctors a.btn-buy:hover {
+  color: #fff;
+  background: #68af28;
+  text-decoration: none;
+  box-shadow: 0 0 5px #c0c2c1;
+}
+
+/*How It Works - Diff BG Block*/
+.doctors-rev {
+  padding: 30px 0;
+  padding-bottom:1px;
+  box-shadow: inset 0 0 4px #eee;
+  font-family: 'Open Sans', sans-serif;
+  color:#8E959C;
+  background-color: #f7f7f7;
+  color:#3498db;
+}
+
+.doctors-rev h1 {
+  font-size: 46px;
+  font-weight: 900 !important;
+}
+
+.doctors-rev p {
+  margin-bottom: 0;
+  color:#8E959C;
+}
+.doctors-rev span {
+  color: #666;
+  display: block;
+  font-size: 28px;
+  font-weight: 200;
+  line-height: 35px;
+  margin-bottom: 12px;
+  font-family: 'Open Sans', sans-serif;
+}
+.doctors-rev a.btn-go {
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 22px;
+  font-weight: bold;
+  background: #72c02c;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 28px 9px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 #51a00b;
+}
+.doctors-rev a.btn-buy:hover {
+  color: #fff;
+  background: #68af28;
+  text-decoration: none;
+  box-shadow: 0 0 5px #c0c2c1;
+}
+.doctors h1 {
+  font-size: 50px;
+  font-weight: 300 !important;
+  color: #3498db;
+}
+p.lead {
+  font-weight: 300;
+}
