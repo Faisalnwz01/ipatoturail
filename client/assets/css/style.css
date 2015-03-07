@@ -454,13 +454,9 @@ input.gn-search:focus {
 	position:relative;
 }
 
-<<<<<<< HEAD
+
 #intro{	
 	/*background-image: url(client/assets/images/l50.png);*/
-=======
-#intro{
-	background-image: url(../img/img-bg.jpg);
->>>>>>> master
 	background-size: cover;
 }
 
