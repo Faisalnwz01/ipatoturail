@@ -6,6 +6,7 @@ var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
 var apiKey = 'i9bmu2obdkr7H47YgfzhmA';
 var easypost = require('node-easypost')(apiKey);
+var _ = require('lodash');
 var stripe = require("stripe")("sk_test_Bkp3kD47ARbEfHuGo4twLFPR");
 // var TrueVault = require('truevaultjs');
 // var client = new TrueVault('f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518');
@@ -61,6 +62,35 @@ stripe.customers.create({
 // });
 }
 
+
+// Updates an existing thing in the DB.
+// exports.update = function(req, res) {
+//   console.log(req)
+
+//   if(req.body._id) { delete req.body._id; }
+//   User.findById(req.params.id, function (err, user) {
+//     if(err) return res.send(500, err);
+//     if(!user) { return res.send(404); }
+//     var updated = _.extend(user, req.body);
+//     updated.save(function (err) {
+//       if(err) return res.send(500, err);
+//       return res.json(200, user);
+//     });
+//   });
+// };
+
+exports.update = function(req, res) {
+  console.log(req.body)
+  
+  User.findById(req.body._id).exec(function(err, user) {
+  var updated = _.merge(user, req.body);
+    if (err) return res.send(500)
+    updated.save(function(err, user) {
+      if (err) return res.send(500)
+      return res.send(200)
+    })
+  })
+}
 
 exports.test = function(){
   console.log('working')

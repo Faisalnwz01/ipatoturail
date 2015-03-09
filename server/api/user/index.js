@@ -15,6 +15,7 @@ router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
 router.post('/address', controller.easyPost)
 router.post('/stripe', controller.stripe)
+router.put('/:id', controller.update);
 
 // router.get('/doctors/get', controller.trueVault)
 
