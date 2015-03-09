@@ -18,6 +18,7 @@ var UserSchema = new Schema({
   provider: String,
   salt: String,
   address: {},
+  document_id: String,
   facebook: {},
   google: {},
   github: {}

@@ -19,6 +19,31 @@ $scope.token = $cookieStore.get('token')
     symptoms: ""
   }
 
+   $scope.postDocumentID = function(){
+            console.log($scope.getCurrentUser)
+            $scope.getCurrentUser.document_id = $scope.document_id
+            console.log($scope._id)
+            console.log($scope.getCurrentUser)
+            $http.put('api/users/'+$scope._id, $scope.getCurrentUser).then(function(user){
+                var user = Auth.getCurrentUser();
+
+                console.log(user, 'Faisalllllllllllllllllllllllllllllll')
+            
+                $scope.order = {
+                      ParentName: user.name,
+                      document_id: user.document_id, 
+                      phone: user.address.phone, 
+                      email: user.email, 
+                      address: user.address, 
+                      status: "OPEN"
+                }
+                $http.post('api/orders/', $scope.order).then(function(order){
+                    //Twilio to doctors 
+                    console.log(order)
+                })
+            })
+        }
+
 
         $scope.truevaultPostDoc = function() {
             $cookieStore.remove('token')
@@ -39,13 +64,17 @@ $scope.token = $cookieStore.get('token')
 
             $http(doc).success(function(data) {
                 console.log(data)
-                console.log($scope.token)
+                $scope.document_id = data.document_id;
+               console.log($scope.token)
                $cookieStore.put('token', $scope.token);
+               $scope.postDocumentID();
 
             }).error(function(data) {
                 console.log(data)
             });
         };
+
+        
 
 $scope.submitChildInfo = function(){
   $scope.truevaultPostDoc();
