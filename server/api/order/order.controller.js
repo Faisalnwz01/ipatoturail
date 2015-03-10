@@ -74,6 +74,7 @@ exports.texts =function(req, res){
     }
     else {
       console.log('hit error')
+      var twiml = new twilio1.TwimlResponse();
       twiml.sms('fuck off')
         res.send('you are not twilio.  Buzz off.');
     }
