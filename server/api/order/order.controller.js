@@ -63,15 +63,15 @@ exports.twilio = function(req, res) {
 // }
 
 exports.texts =function(req, res){
-  console.log(req.body, 'bodyyyyyyyyyyyy')
-  console.log(req.body.body, 'bodyyyyyyyyyyy')
+ console.log(req.body)
+  console.log(req.body.Body, 'bodyyyyyyyyyyy')
   console.log('hit text twilio functions')
 
 if(req.body.body === "yes"){
   console.log('hit yes')
     client.sendMessage({
 
-      to: req.body.from, // Any number Twilio can deliver to
+      to: req.body.From, // Any number Twilio can deliver to
       from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
       body: 'you got the order' // body of the SMS message
 
@@ -97,8 +97,11 @@ if(req.body.body === "yes"){
 
     else{
        client.sendMessage({
-
-      to: req.body.from, // Any number Twilio can deliver to
+        console.log(req.body.From, 'from no bracks')
+        console.log(req.body['From'], 'brackets')
+        var par = console.log(JSON.parse(req.body), 'parseeeeee')
+        
+      to: req.body.From || par.from, // Any number Twilio can deliver to
       from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
       body: 'fuck off' // body of the SMS message
 
