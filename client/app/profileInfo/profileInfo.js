@@ -6,6 +6,7 @@ angular.module('babyDoctorApp')
       .state('profileInfo', {
         url: '/profileInfo',
         templateUrl: 'app/profileInfo/profileInfo.html',
-        controller: 'ProfileInfoCtrl'
+        controller: 'ProfileInfoCtrl',
+         authenticate: true
       });
   });
