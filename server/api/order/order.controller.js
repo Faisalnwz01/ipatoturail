@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Order = require('./order.model');
+var client = require('twilio')('AC055e2c406321688db01756618570376e', '3ed6d61c3e9a141a97903453820f65ba');
 
 // Get list of orders
 exports.index = function(req, res) {
@@ -10,6 +11,37 @@ exports.index = function(req, res) {
     return res.json(200, orders);
   });
 };
+
+exports.twilio = function(req, res){
+  console.log('hit on back end')
+  //Send an SMS text message
+client.sendMessage({
+
+    to: ['+17185308914', '+16094396656', '+16094396656'], // Any number Twilio can deliver to
+    from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+    body: 'word to your mother.' // body of the SMS message
+
+}, function(err, responseData) { //this function is executed when a response is received from Twilio
+    
+    if (!err) { // "err" is an error received during the request, if any
+
+        // "responseData" is a JavaScript object containing data received from Twilio.
+        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+
+        console.log(responseData.from); // outputs "+14506667788"
+        console.log(responseData.body); // outputs "word to your mother."
+        console.log('hit success')
+
+    }
+    else {
+      console.log(err)
+      console.log('hit error')
+    }
+});
+
+
+}
 
 // Get a single order
 exports.show = function(req, res) {

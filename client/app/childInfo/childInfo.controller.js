@@ -38,7 +38,9 @@ $scope.token = $cookieStore.get('token')
                       status: "OPEN"
                 }
                 $http.post('api/orders/', $scope.order).then(function(order){
-                    //Twilio to doctors 
+                    $http.post('api/orders/twilio/', $scope.order).then(function(text){
+                      console.log(text, 'texttttttttttttttttt')
+                    })
                     console.log(order)
                 })
             })
