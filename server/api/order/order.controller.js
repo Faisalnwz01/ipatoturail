@@ -65,7 +65,7 @@ exports.twilio = function(req, res) {
 exports.texts =function(req, res){
   console.log(req.body)
   console.log('hit text twilio functions')
-   if (twilio1.validateExpressRequest(req, 'd5c437f360516d9dabc6783981b51dd5')) {
+   if (twilio1.validateExpressRequest(req, '3ed6d61c3e9a141a97903453820f65ba')) {
         console.log('hide success')
         var twiml = new twilio1.TwimlResponse();
         // console.log(twiml.toString(), 'twiml to strong')
@@ -74,6 +74,7 @@ exports.texts =function(req, res){
     }
     else {
       console.log('hit error')
+      twiml.sms('fuck off')
         res.send('you are not twilio.  Buzz off.');
     }
 }
