@@ -67,7 +67,7 @@ exports.texts =function(req, res){
   console.log(req.body.Body, 'bodyyyyyyyyyyy')
   console.log('hit text twilio functions')
 
-if(req.body.body === "yes"){
+if(req.body.Body === "yes"){
   console.log('hit yes')
     client.sendMessage({
 
