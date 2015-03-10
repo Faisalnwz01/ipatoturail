@@ -11,7 +11,9 @@ router.post('/', controller.create);
 router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
+
 router.post('/twilio', controller.twilio);
 router.post('/texts/1', controller.texts) 
+
 
 module.exports = router;
