@@ -62,7 +62,7 @@ exports.twilio = function(req, res) {
 
 // }
 
-exports.texts =function(){
+exports.texts =function(req, res){
   console.log('hit text twilio functions')
    if (twilio1.validateExpressRequest(req, 'd5c437f360516d9dabc6783981b51dd5')) {
         var twiml = new twilio1.TwimlResponse();
