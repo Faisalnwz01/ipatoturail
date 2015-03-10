@@ -63,21 +63,82 @@ exports.twilio = function(req, res) {
 // }
 
 exports.texts =function(req, res){
-  console.log(req.body)
+  console.log(req.body, 'bodyyyyyyyyyyyy')
+  console.log(req.body.body, 'bodyyyyyyyyyyy')
   console.log('hit text twilio functions')
-   if (twilio1.validateExpressRequest(req, '3ed6d61c3e9a141a97903453820f65ba')) {
-        console.log('hide success')
-        var twiml = new twilio1.TwimlResponse();
-        // console.log(twiml.toString(), 'twiml to strong')
-        twiml.sms('Hi!  Thanks for checking out my app!')
-        res.send(twiml.toString());
+
+if(req.body.body === "yes"){
+  console.log('hit yes')
+    client.sendMessage({
+
+      to: req.body.from, // Any number Twilio can deliver to
+      from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+      body: 'you got the order' // body of the SMS message
+
+    }, function(err, responseData) { //this function is executed when a response is received from Twilio
+
+      if (!err) { // "err" is an error received during the request, if any
+
+        // "responseData" is a JavaScript object containing data received from Twilio.
+        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+
+        console.log(responseData.from); // outputs "+14506667788"
+        console.log(responseData.body); // outputs "word to your mother."
+        console.log('hit success')
+
+      } else {
+        console.log(err)
+        console.log('hit error')
+      }
+    });
+
     }
-    else {
-      console.log('hit error')
-      var twiml = new twilio1.TwimlResponse();
-      twiml.sms('fuck off')
-        res.send('you are not twilio.  Buzz off.');
+
+    else{
+       client.sendMessage({
+
+      to: req.body.from, // Any number Twilio can deliver to
+      from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+      body: 'fuck off' // body of the SMS message
+
+    }, function(err, responseData) { //this function is executed when a response is received from Twilio
+
+      if (!err) { // "err" is an error received during the request, if any
+
+        // "responseData" is a JavaScript object containing data received from Twilio.
+        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+
+        console.log(responseData.from); // outputs "+14506667788"
+        console.log(responseData.body); // outputs "word to your mother."
+        console.log('hit success')
+
+      } else {
+        console.log(err)
+        console.log('hit error')
+      }
+    });
+
+
+
     }
+
+
+
+   // if (twilio1.validateExpressRequest(req, '3ed6d61c3e9a141a97903453820f65ba')) {
+   //      console.log('hide success')
+   //      var twiml = new twilio1.TwimlResponse();
+   //      // console.log(twiml.toString(), 'twiml to strong')
+   //      twiml.sms('Hi!  Thanks for checking out my app!')
+   //      res.send(twiml.toString());
+   //  }
+   //  else {
+   //    console.log('hit error')
+   //    var twiml = new twilio1.TwimlResponse();
+   //    twiml.sms('fuck off')
+   //      res.send('you are not twilio.  Buzz off.');
+   //  }
 }
 
 // Get a single order
