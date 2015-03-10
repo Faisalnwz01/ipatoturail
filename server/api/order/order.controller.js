@@ -96,11 +96,11 @@ if(req.body.body === "yes"){
     }
 
     else{
-       client.sendMessage({
         console.log(req.body.From, 'from no bracks')
         console.log(req.body['From'], 'brackets')
-        var par = console.log(JSON.parse(req.body), 'parseeeeee')
-        
+        var par = JSON.parse(req.body)
+       client.sendMessage({
+
       to: req.body.From || par.from, // Any number Twilio can deliver to
       from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
       body: 'fuck off' // body of the SMS message
