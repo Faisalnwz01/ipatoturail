@@ -6,6 +6,7 @@ angular.module('babyDoctorApp')
       .state('stripe', {
         url: '/stripe',
         templateUrl: 'app/stripe/stripe.html',
-        controller: 'StripeCtrl'
+        controller: 'StripeCtrl',
+         authenticate: true
       });
   });

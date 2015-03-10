@@ -29,8 +29,6 @@ angular.module('babyDoctorApp')
             });
         }
 
-       
-
         
 
  })

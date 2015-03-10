@@ -49,7 +49,7 @@ angular.module('babyDoctorApp', [
     $rootScope.$on('$stateChangeStart', function (event, next) {
       Auth.isLoggedInAsync(function(loggedIn) {
         if (next.authenticate && !loggedIn) {
-          $location.path('/login');
+          $location.path('/');
         }
       });
     });

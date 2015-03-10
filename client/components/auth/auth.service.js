@@ -101,6 +101,7 @@ angular.module('babyDoctorApp')
         return currentUser;
       },
 
+
       /**
        * Check if a user is logged in
        *
@@ -134,6 +135,11 @@ angular.module('babyDoctorApp')
        */
       isAdmin: function() {
         return currentUser.role === 'admin';
+      },
+
+       isDoctor: function() {
+        console.log("doctor")
+        return currentUser.role === 'doctor';
       },
 
       /**

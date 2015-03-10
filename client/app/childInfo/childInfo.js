@@ -6,6 +6,7 @@ angular.module('babyDoctorApp')
       .state('childInfo', {
         url: '/childInfo',
         templateUrl: 'app/childInfo/childInfo.html',
-        controller: 'ChildInfoCtrl'
+        controller: 'ChildInfoCtrl',
+         authenticate: true
       });
   });

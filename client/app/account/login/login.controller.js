@@ -59,9 +59,15 @@ $scope.isLoggedIn = Auth.isLoggedIn;
           password: $scope.user.password
         })
         .then( function() {
-          // Logged in, redirect to home
-          $location.path('/childInfo');
+        $http.get("api/users/me").then(function (data) {
+            if(data.data.role === "doctor"){
+              $location.path('/doctorDash');
+            }
+            else{
+              $location.path('/profileInfo')
+            }
         })
+      })
         .catch( function(err) {
           $scope.errors.other = err.message;
         });
