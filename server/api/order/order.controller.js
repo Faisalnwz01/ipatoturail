@@ -63,13 +63,17 @@ exports.twilio = function(req, res) {
 // }
 
 exports.texts =function(req, res){
+  console.log(req.body)
   console.log('hit text twilio functions')
    if (twilio1.validateExpressRequest(req, 'd5c437f360516d9dabc6783981b51dd5')) {
+        console.log('hide success')
         var twiml = new twilio1.TwimlResponse();
+        // console.log(twiml.toString(), 'twiml to strong')
         twiml.sms('Hi!  Thanks for checking out my app!')
         res.send(twiml.toString());
     }
     else {
+      console.log('hit error')
         res.send('you are not twilio.  Buzz off.');
     }
 }
