@@ -100,7 +100,7 @@ if(req.body.body === "yes"){
       
        client.sendMessage({
 
-      to: req.body.From  // Any number Twilio can deliver to
+      to: req.body.From,  // Any number Twilio can deliver to
       from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
       body: 'fuck off' // body of the SMS message
 
