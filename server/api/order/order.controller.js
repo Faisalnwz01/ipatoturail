@@ -3,7 +3,7 @@
 var _ = require('lodash');
 var Order = require('./order.model');
 var client = require('twilio')('AC055e2c406321688db01756618570376e', '3ed6d61c3e9a141a97903453820f65ba');
-
+var twilio1 = require('twilio')
 // Get list of orders
 exports.index = function(req, res) {
   Order.find(function (err, orders) {
@@ -41,6 +41,18 @@ client.sendMessage({
 });
 
 
+}
+
+exports.texts =function(){
+  console.log('hit text twilio functions')
+   if (twilio1.validateExpressRequest(req, 'YOUR_AUTH_TOKEN')) {
+        var twiml = new twilio1.TwimlResponse();
+        twiml.sms('Hi!  Thanks for checking out my app!')
+        res.send(twiml.toString());
+    }
+    else {
+        res.send('you are not twilio.  Buzz off.');
+    }
 }
 
 // Get a single order
