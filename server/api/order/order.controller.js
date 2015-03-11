@@ -89,7 +89,7 @@ exports.texts = function(req, res) {
 
             });
         });
-
+        ////end of  adding doctor phone to order
 
         if (response === "yes " + code4Digit) {
             console.log('hit yes')
