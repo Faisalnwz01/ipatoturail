@@ -1,0 +1,519 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ '/Users/adil/babydoc',
+5 verbose install   [ 'body-parser',
+5 verbose install     'composable-middleware',
+5 verbose install     'compression',
+5 verbose install     'connect-mongo',
+5 verbose install     'cookie-parser',
+5 verbose install     'ejs',
+5 verbose install     'errorhandler',
+5 verbose install     'express',
+5 verbose install     'express-jwt',
+5 verbose install     'express-session',
+5 verbose install     'jsonwebtoken',
+5 verbose install     'lodash',
+5 verbose install     'method-override',
+5 verbose install     'mongoose',
+5 verbose install     'morgan',
+5 verbose install     'node-easypost',
+5 verbose install     'passport',
+5 verbose install     'passport-facebook',
+5 verbose install     'passport-google-oauth',
+5 verbose install     'passport-local',
+5 verbose install     'serve-favicon',
+5 verbose install     'socket.io',
+5 verbose install     'socket.io-client',
+5 verbose install     'socketio-jwt',
+5 verbose install     'stripe',
+5 verbose install     'twilio',
+5 verbose install     'grunt',
+5 verbose install     'grunt-autoprefixer',
+5 verbose install     'grunt-wiredep',
+5 verbose install     'grunt-concurrent',
+5 verbose install     'grunt-contrib-clean',
+5 verbose install     'grunt-contrib-concat',
+5 verbose install     'grunt-contrib-copy',
+5 verbose install     'grunt-contrib-cssmin',
+5 verbose install     'grunt-contrib-htmlmin',
+5 verbose install     'grunt-contrib-imagemin',
+5 verbose install     'grunt-contrib-jshint',
+5 verbose install     'grunt-contrib-uglify',
+5 verbose install     'grunt-contrib-watch',
+5 verbose install     'grunt-google-cdn',
+5 verbose install     'grunt-newer',
+5 verbose install     'grunt-ng-annotate',
+5 verbose install     'grunt-rev',
+5 verbose install     'grunt-svgmin',
+5 verbose install     'grunt-usemin',
+5 verbose install     'grunt-env',
+5 verbose install     'grunt-node-inspector',
+5 verbose install     'grunt-nodemon',
+5 verbose install     'grunt-angular-templates',
+5 verbose install     'grunt-dom-munger',
+5 verbose install     'grunt-protractor-runner',
+5 verbose install     'grunt-asset-injector',
+5 verbose install     'grunt-karma',
+5 verbose install     'grunt-build-control',
+5 verbose install     'grunt-mocha-test',
+5 verbose install     'grunt-contrib-sass',
+5 verbose install     'jit-grunt',
+5 verbose install     'time-grunt',
+5 verbose install     'grunt-express-server',
+5 verbose install     'grunt-open',
+5 verbose install     'open',
+5 verbose install     'jshint-stylish',
+5 verbose install     'connect-livereload',
+5 verbose install     'karma-ng-scenario',
+5 verbose install     'karma-firefox-launcher',
+5 verbose install     'karma-script-launcher',
+5 verbose install     'karma-html2js-preprocessor',
+5 verbose install     'karma-ng-jade2js-preprocessor',
+5 verbose install     'karma-jasmine',
+5 verbose install     'karma-chrome-launcher',
+5 verbose install     'requirejs',
+5 verbose install     'karma-requirejs',
+5 verbose install     'karma-coffee-preprocessor',
+5 verbose install     'karma-jade-preprocessor',
+5 verbose install     'karma-phantomjs-launcher',
+5 verbose install     'karma',
+5 verbose install     'karma-ng-html2js-preprocessor',
+5 verbose install     'supertest',
+5 verbose install     'should' ] ]
+6 info preinstall baby-doctor@0.0.0
+7 verbose readDependencies using package.json deps
+8 verbose already installed skipping morgan@~1.0.0 /Users/adil/babydoc
+9 verbose already installed skipping node-easypost@^2.0.5 /Users/adil/babydoc
+10 verbose already installed skipping passport@~0.2.0 /Users/adil/babydoc
+11 verbose cache add [ 'passport-facebook@latest', null ]
+12 verbose cache add name=undefined spec="passport-facebook@latest" args=["passport-facebook@latest",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'passport-facebook@latest',
+13 verbose parsed url   path: 'passport-facebook@latest',
+13 verbose parsed url   href: 'passport-facebook@latest' }
+14 verbose cache add [ 'passport-google-oauth@latest', null ]
+15 verbose cache add name=undefined spec="passport-google-oauth@latest" args=["passport-google-oauth@latest",null]
+16 verbose parsed url { protocol: null,
+16 verbose parsed url   slashes: null,
+16 verbose parsed url   auth: null,
+16 verbose parsed url   host: null,
+16 verbose parsed url   port: null,
+16 verbose parsed url   hostname: null,
+16 verbose parsed url   hash: null,
+16 verbose parsed url   search: null,
+16 verbose parsed url   query: null,
+16 verbose parsed url   pathname: 'passport-google-oauth@latest',
+16 verbose parsed url   path: 'passport-google-oauth@latest',
+16 verbose parsed url   href: 'passport-google-oauth@latest' }
+17 verbose already installed skipping passport-local@~0.1.6 /Users/adil/babydoc
+18 verbose already installed skipping serve-favicon@~2.0.1 /Users/adil/babydoc
+19 verbose cache add name="passport-facebook" spec="latest" args=["passport-facebook","latest"]
+20 verbose parsed url { protocol: null,
+20 verbose parsed url   slashes: null,
+20 verbose parsed url   auth: null,
+20 verbose parsed url   host: null,
+20 verbose parsed url   port: null,
+20 verbose parsed url   hostname: null,
+20 verbose parsed url   hash: null,
+20 verbose parsed url   search: null,
+20 verbose parsed url   query: null,
+20 verbose parsed url   pathname: 'latest',
+20 verbose parsed url   path: 'latest',
+20 verbose parsed url   href: 'latest' }
+21 verbose addNamed [ 'passport-facebook', 'latest' ]
+22 verbose addNamed [ null, null ]
+23 verbose cache add name="passport-google-oauth" spec="latest" args=["passport-google-oauth","latest"]
+24 verbose parsed url { protocol: null,
+24 verbose parsed url   slashes: null,
+24 verbose parsed url   auth: null,
+24 verbose parsed url   host: null,
+24 verbose parsed url   port: null,
+24 verbose parsed url   hostname: null,
+24 verbose parsed url   hash: null,
+24 verbose parsed url   search: null,
+24 verbose parsed url   query: null,
+24 verbose parsed url   pathname: 'latest',
+24 verbose parsed url   path: 'latest',
+24 verbose parsed url   href: 'latest' }
+25 verbose addNamed [ 'passport-google-oauth', 'latest' ]
+26 verbose addNamed [ null, null ]
+27 verbose already installed skipping socket.io@^1.0.6 /Users/adil/babydoc
+28 silly lockFile 82ca5952-passport-facebook-latest passport-facebook@latest
+29 verbose lock passport-facebook@latest /Users/adil/.npm/82ca5952-passport-facebook-latest.lock
+30 silly lockFile 2c491da3-passport-google-oauth-latest passport-google-oauth@latest
+31 verbose lock passport-google-oauth@latest /Users/adil/.npm/2c491da3-passport-google-oauth-latest.lock
+32 verbose already installed skipping socket.io-client@^1.0.6 /Users/adil/babydoc
+33 verbose already installed skipping socketio-jwt@^2.0.2 /Users/adil/babydoc
+34 info addNameTag [ 'passport-facebook', 'latest' ]
+35 verbose already installed skipping stripe@^3.2.0 /Users/adil/babydoc
+36 verbose cache add [ 'twilio@^1.11.1', null ]
+37 verbose cache add name=undefined spec="twilio@^1.11.1" args=["twilio@^1.11.1",null]
+38 verbose parsed url { protocol: null,
+38 verbose parsed url   slashes: null,
+38 verbose parsed url   auth: null,
+38 verbose parsed url   host: null,
+38 verbose parsed url   port: null,
+38 verbose parsed url   hostname: null,
+38 verbose parsed url   hash: null,
+38 verbose parsed url   search: null,
+38 verbose parsed url   query: null,
+38 verbose parsed url   pathname: 'twilio@^1.11.1',
+38 verbose parsed url   path: 'twilio@^1.11.1',
+38 verbose parsed url   href: 'twilio@^1.11.1' }
+39 info addNameTag [ 'passport-google-oauth', 'latest' ]
+40 verbose cache add name="twilio" spec="^1.11.1" args=["twilio","^1.11.1"]
+41 verbose parsed url { protocol: null,
+41 verbose parsed url   slashes: null,
+41 verbose parsed url   auth: null,
+41 verbose parsed url   host: null,
+41 verbose parsed url   port: null,
+41 verbose parsed url   hostname: null,
+41 verbose parsed url   hash: null,
+41 verbose parsed url   search: null,
+41 verbose parsed url   query: null,
+41 verbose parsed url   pathname: '^1.11.1',
+41 verbose parsed url   path: '^1.11.1',
+41 verbose parsed url   href: '^1.11.1' }
+42 verbose addNamed [ 'twilio', '^1.11.1' ]
+43 verbose addNamed [ null, '>=1.11.1-0 <2.0.0-0' ]
+44 silly lockFile e9cf0675-twilio-1-11-1 twilio@^1.11.1
+45 verbose lock twilio@^1.11.1 /Users/adil/.npm/e9cf0675-twilio-1-11-1.lock
+46 verbose already installed skipping grunt@~0.4.4 /Users/adil/babydoc
+47 verbose already installed skipping grunt-autoprefixer@~0.7.2 /Users/adil/babydoc
+48 silly addNameRange { name: 'twilio', range: '>=1.11.1-0 <2.0.0-0', hasData: false }
+49 verbose already installed skipping grunt-wiredep@~1.8.0 /Users/adil/babydoc
+50 verbose request where is /twilio
+51 verbose request registry https://registry.npmjs.org/
+52 verbose request id 357365afa110dc4a
+53 verbose url raw /twilio
+54 verbose url resolving [ 'https://registry.npmjs.org/', './twilio' ]
+55 verbose url resolved https://registry.npmjs.org/twilio
+56 verbose request where is https://registry.npmjs.org/twilio
+57 info trying registry request attempt 1 at 15:55:20
+58 http GET https://registry.npmjs.org/twilio
+59 verbose request where is /passport-google-oauth
+60 verbose request registry https://registry.npmjs.org/
+61 verbose url raw /passport-google-oauth
+62 verbose url resolving [ 'https://registry.npmjs.org/', './passport-google-oauth' ]
+63 verbose url resolved https://registry.npmjs.org/passport-google-oauth
+64 verbose request where is https://registry.npmjs.org/passport-google-oauth
+65 info trying registry request attempt 1 at 15:55:20
+66 verbose etag "3AD36PY7JN7JEADRK6YWMRHRX"
+67 http GET https://registry.npmjs.org/passport-google-oauth
+68 verbose already installed skipping grunt-concurrent@~0.5.0 /Users/adil/babydoc
+69 verbose already installed skipping grunt-contrib-clean@~0.5.0 /Users/adil/babydoc
+70 verbose already installed skipping grunt-contrib-concat@~0.4.0 /Users/adil/babydoc
+71 verbose already installed skipping grunt-contrib-copy@~0.5.0 /Users/adil/babydoc
+72 verbose already installed skipping grunt-contrib-cssmin@~0.9.0 /Users/adil/babydoc
+73 verbose already installed skipping grunt-contrib-htmlmin@~0.2.0 /Users/adil/babydoc
+74 verbose already installed skipping grunt-contrib-imagemin@~0.7.1 /Users/adil/babydoc
+75 verbose already installed skipping grunt-contrib-jshint@~0.10.0 /Users/adil/babydoc
+76 verbose already installed skipping grunt-contrib-uglify@~0.4.0 /Users/adil/babydoc
+77 verbose already installed skipping grunt-contrib-watch@~0.6.1 /Users/adil/babydoc
+78 verbose already installed skipping grunt-google-cdn@~0.4.0 /Users/adil/babydoc
+79 verbose already installed skipping grunt-newer@~0.7.0 /Users/adil/babydoc
+80 verbose already installed skipping grunt-ng-annotate@^0.2.3 /Users/adil/babydoc
+81 verbose already installed skipping grunt-rev@~0.1.0 /Users/adil/babydoc
+82 verbose already installed skipping grunt-svgmin@~0.4.0 /Users/adil/babydoc
+83 verbose already installed skipping grunt-usemin@~2.1.1 /Users/adil/babydoc
+84 verbose already installed skipping grunt-env@~0.4.1 /Users/adil/babydoc
+85 verbose already installed skipping grunt-node-inspector@~0.1.5 /Users/adil/babydoc
+86 verbose already installed skipping grunt-nodemon@~0.2.0 /Users/adil/babydoc
+87 verbose already installed skipping grunt-angular-templates@^0.5.4 /Users/adil/babydoc
+88 verbose already installed skipping grunt-dom-munger@^3.4.0 /Users/adil/babydoc
+89 verbose already installed skipping grunt-protractor-runner@^1.1.0 /Users/adil/babydoc
+90 verbose already installed skipping grunt-asset-injector@^0.1.0 /Users/adil/babydoc
+91 verbose already installed skipping grunt-karma@~0.8.2 /Users/adil/babydoc
+92 verbose cache add [ 'grunt-build-control@git+https://github.com/DaftMonk/grunt-build-control',
+92 verbose cache add   null ]
+93 verbose cache add name=undefined spec="grunt-build-control@git+https://github.com/DaftMonk/grunt-build-control" args=["grunt-build-control@git+https://github.com/DaftMonk/grunt-build-control",null]
+94 verbose parsed url { protocol: null,
+94 verbose parsed url   slashes: null,
+94 verbose parsed url   auth: null,
+94 verbose parsed url   host: null,
+94 verbose parsed url   port: null,
+94 verbose parsed url   hostname: null,
+94 verbose parsed url   hash: null,
+94 verbose parsed url   search: null,
+94 verbose parsed url   query: null,
+94 verbose parsed url   pathname: 'grunt-build-control@git+https://github.com/DaftMonk/grunt-build-control',
+94 verbose parsed url   path: 'grunt-build-control@git+https://github.com/DaftMonk/grunt-build-control',
+94 verbose parsed url   href: 'grunt-build-control@git+https://github.com/DaftMonk/grunt-build-control' }
+95 verbose already installed skipping grunt-mocha-test@~0.10.2 /Users/adil/babydoc
+96 verbose request where is /passport-facebook
+97 verbose request registry https://registry.npmjs.org/
+98 verbose url raw /passport-facebook
+99 verbose url resolving [ 'https://registry.npmjs.org/', './passport-facebook' ]
+100 verbose url resolved https://registry.npmjs.org/passport-facebook
+101 verbose request where is https://registry.npmjs.org/passport-facebook
+102 info trying registry request attempt 1 at 15:55:20
+103 verbose etag "APVXJCVABBY41Q548C4SU084F"
+104 http GET https://registry.npmjs.org/passport-facebook
+105 verbose already installed skipping grunt-contrib-sass@^0.7.3 /Users/adil/babydoc
+106 verbose already installed skipping jit-grunt@^0.5.0 /Users/adil/babydoc
+107 verbose cache add name="grunt-build-control" spec="git+https://github.com/DaftMonk/grunt-build-control" args=["grunt-build-control","git+https://github.com/DaftMonk/grunt-build-control"]
+108 verbose parsed url { protocol: 'git+https:',
+108 verbose parsed url   slashes: true,
+108 verbose parsed url   auth: null,
+108 verbose parsed url   host: 'github.com',
+108 verbose parsed url   port: null,
+108 verbose parsed url   hostname: 'github.com',
+108 verbose parsed url   hash: null,
+108 verbose parsed url   search: null,
+108 verbose parsed url   query: null,
+108 verbose parsed url   pathname: '/DaftMonk/grunt-build-control',
+108 verbose parsed url   path: '/DaftMonk/grunt-build-control',
+108 verbose parsed url   href: 'git+https://github.com/DaftMonk/grunt-build-control' }
+109 silly lockFile 7e4d577b-com-DaftMonk-grunt-build-control https://github.com/DaftMonk/grunt-build-control
+110 verbose lock https://github.com/DaftMonk/grunt-build-control /Users/adil/.npm/7e4d577b-com-DaftMonk-grunt-build-control.lock
+111 verbose already installed skipping time-grunt@~0.3.1 /Users/adil/babydoc
+112 verbose addRemoteGit [ 'https://github.com/DaftMonk/grunt-build-control', 'master' ]
+113 verbose already installed skipping grunt-express-server@~0.4.17 /Users/adil/babydoc
+114 verbose already installed skipping grunt-open@~0.2.3 /Users/adil/babydoc
+115 verbose already installed skipping open@~0.0.4 /Users/adil/babydoc
+116 verbose already installed skipping jshint-stylish@~0.1.5 /Users/adil/babydoc
+117 verbose already installed skipping connect-livereload@~0.4.0 /Users/adil/babydoc
+118 verbose already installed skipping karma-ng-scenario@~0.1.0 /Users/adil/babydoc
+119 verbose already installed skipping karma-firefox-launcher@~0.1.3 /Users/adil/babydoc
+120 verbose already installed skipping karma-script-launcher@~0.1.0 /Users/adil/babydoc
+121 verbose git remote.origin.url https://github.com/DaftMonk/grunt-build-control
+122 verbose already installed skipping karma-html2js-preprocessor@~0.1.0 /Users/adil/babydoc
+123 verbose already installed skipping karma-ng-jade2js-preprocessor@^0.1.2 /Users/adil/babydoc
+124 verbose already installed skipping karma-jasmine@~0.1.5 /Users/adil/babydoc
+125 verbose already installed skipping karma-chrome-launcher@~0.1.3 /Users/adil/babydoc
+126 verbose already installed skipping requirejs@~2.1.11 /Users/adil/babydoc
+127 verbose already installed skipping karma-requirejs@~0.2.1 /Users/adil/babydoc
+128 verbose already installed skipping karma-coffee-preprocessor@~0.2.1 /Users/adil/babydoc
+129 verbose already installed skipping karma-jade-preprocessor@0.0.11 /Users/adil/babydoc
+130 verbose already installed skipping karma-phantomjs-launcher@~0.1.4 /Users/adil/babydoc
+131 verbose already installed skipping karma@~0.12.9 /Users/adil/babydoc
+132 verbose already installed skipping karma-ng-html2js-preprocessor@~0.1.0 /Users/adil/babydoc
+133 verbose already installed skipping supertest@~0.11.0 /Users/adil/babydoc
+134 verbose already installed skipping should@~3.3.1 /Users/adil/babydoc
+135 verbose already installed skipping body-parser@~1.5.0 /Users/adil/babydoc
+136 verbose already installed skipping composable-middleware@^0.3.0 /Users/adil/babydoc
+137 verbose already installed skipping compression@~1.0.1 /Users/adil/babydoc
+138 verbose already installed skipping connect-mongo@^0.4.1 /Users/adil/babydoc
+139 verbose already installed skipping cookie-parser@~1.0.1 /Users/adil/babydoc
+140 verbose already installed skipping ejs@~0.8.4 /Users/adil/babydoc
+141 verbose already installed skipping errorhandler@~1.0.0 /Users/adil/babydoc
+142 verbose already installed skipping express@~4.0.0 /Users/adil/babydoc
+143 verbose already installed skipping express-jwt@^0.1.3 /Users/adil/babydoc
+144 verbose already installed skipping express-session@~1.0.2 /Users/adil/babydoc
+145 verbose already installed skipping jsonwebtoken@^0.3.0 /Users/adil/babydoc
+146 verbose already installed skipping lodash@~2.4.1 /Users/adil/babydoc
+147 verbose already installed skipping method-override@~1.0.0 /Users/adil/babydoc
+148 verbose already installed skipping mongoose@~3.8.8 /Users/adil/babydoc
+149 http 200 https://registry.npmjs.org/passport-google-oauth
+150 silly registry.get cb [ 200,
+150 silly registry.get   { date: 'Tue, 10 Mar 2015 19:55:20 GMT',
+150 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+150 silly registry.get     etag: '"5SIPJSZ5ZSYXHAOTFTMPSVKWU"',
+150 silly registry.get     'content-type': 'application/json',
+150 silly registry.get     'cache-control': 'max-age=60',
+150 silly registry.get     'content-length': '14371',
+150 silly registry.get     'accept-ranges': 'bytes',
+150 silly registry.get     via: '1.1 varnish',
+150 silly registry.get     age: '42',
+150 silly registry.get     'x-served-by': 'cache-iad2123-IAD',
+150 silly registry.get     'x-cache': 'HIT',
+150 silly registry.get     'x-cache-hits': '1',
+150 silly registry.get     'x-timer': 'S1426017320.682848,VS0,VE0',
+150 silly registry.get     vary: 'Accept',
+150 silly registry.get     'keep-alive': 'timeout=10, max=50',
+150 silly registry.get     connection: 'Keep-Alive' } ]
+151 verbose addNamed [ 'passport-google-oauth', '0.2.0' ]
+152 verbose addNamed [ '0.2.0', '0.2.0' ]
+153 silly lockFile ef11d8df-passport-google-oauth-0-2-0 passport-google-oauth@0.2.0
+154 verbose lock passport-google-oauth@0.2.0 /Users/adil/.npm/ef11d8df-passport-google-oauth-0-2-0.lock
+155 silly lockFile bbaf1f0f--passport-google-oauth-0-2-0-tgz https://registry.npmjs.org/passport-google-oauth/-/passport-google-oauth-0.2.0.tgz
+156 verbose lock https://registry.npmjs.org/passport-google-oauth/-/passport-google-oauth-0.2.0.tgz /Users/adil/.npm/bbaf1f0f--passport-google-oauth-0-2-0-tgz.lock
+157 verbose addRemoteTarball [ 'https://registry.npmjs.org/passport-google-oauth/-/passport-google-oauth-0.2.0.tgz',
+157 verbose addRemoteTarball   'e9a87e9cd3bc71b08819fa44825cc5bf464a894a' ]
+158 info retry fetch attempt 1 at 15:55:20
+159 verbose fetch to= /var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/registry.npmjs.org/passport-google-oauth/-/passport-google-oauth-0.2.0.tgz
+160 http GET https://registry.npmjs.org/passport-google-oauth/-/passport-google-oauth-0.2.0.tgz
+161 http 200 https://registry.npmjs.org/passport-facebook
+162 silly registry.get cb [ 200,
+162 silly registry.get   { date: 'Tue, 10 Mar 2015 19:55:20 GMT',
+162 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+162 silly registry.get     etag: '"FV9XEH29LP78MCBHNO1JRX6C"',
+162 silly registry.get     'content-type': 'application/json',
+162 silly registry.get     'cache-control': 'max-age=60',
+162 silly registry.get     'content-length': '21883',
+162 silly registry.get     'accept-ranges': 'bytes',
+162 silly registry.get     via: '1.1 varnish',
+162 silly registry.get     age: '0',
+162 silly registry.get     'x-served-by': 'cache-iad2135-IAD',
+162 silly registry.get     'x-cache': 'HIT',
+162 silly registry.get     'x-cache-hits': '1',
+162 silly registry.get     'x-timer': 'S1426017320.680057,VS0,VE8',
+162 silly registry.get     vary: 'Accept',
+162 silly registry.get     'keep-alive': 'timeout=10, max=50',
+162 silly registry.get     connection: 'Keep-Alive' } ]
+163 verbose addNamed [ 'passport-facebook', '2.0.0' ]
+164 verbose addNamed [ '2.0.0', '2.0.0' ]
+165 silly lockFile 747c92ab-passport-facebook-2-0-0 passport-facebook@2.0.0
+166 verbose lock passport-facebook@2.0.0 /Users/adil/.npm/747c92ab-passport-facebook-2-0-0.lock
+167 silly lockFile 747c92ab-passport-facebook-2-0-0 passport-facebook@2.0.0
+168 silly lockFile 747c92ab-passport-facebook-2-0-0 passport-facebook@2.0.0
+169 silly lockFile 82ca5952-passport-facebook-latest passport-facebook@latest
+170 silly lockFile 82ca5952-passport-facebook-latest passport-facebook@latest
+171 info already installed passport-facebook@2.0.0
+172 http 200 https://registry.npmjs.org/twilio
+173 silly registry.get cb [ 200,
+173 silly registry.get   { date: 'Tue, 10 Mar 2015 19:55:20 GMT',
+173 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+173 silly registry.get     etag: '"4O53YNTEKF92JOGZ0SZL82EU4"',
+173 silly registry.get     'content-type': 'application/json',
+173 silly registry.get     'cache-control': 'max-age=60',
+173 silly registry.get     'content-length': '35204',
+173 silly registry.get     'accept-ranges': 'bytes',
+173 silly registry.get     via: '1.1 varnish',
+173 silly registry.get     age: '21',
+173 silly registry.get     'x-served-by': 'cache-iad2137-IAD',
+173 silly registry.get     'x-cache': 'HIT',
+173 silly registry.get     'x-cache-hits': '1',
+173 silly registry.get     'x-timer': 'S1426017320.690443,VS0,VE0',
+173 silly registry.get     vary: 'Accept',
+173 silly registry.get     'keep-alive': 'timeout=10, max=50',
+173 silly registry.get     connection: 'Keep-Alive' } ]
+174 silly addNameRange number 2 { name: 'twilio', range: '>=1.11.1-0 <2.0.0-0', hasData: true }
+175 silly addNameRange versions [ 'twilio',
+175 silly addNameRange   [ '0.0.0',
+175 silly addNameRange     '0.0.1',
+175 silly addNameRange     '0.0.3',
+175 silly addNameRange     '0.0.4',
+175 silly addNameRange     '0.2.0',
+175 silly addNameRange     '0.3.0',
+175 silly addNameRange     '0.4.0',
+175 silly addNameRange     '0.3.3',
+175 silly addNameRange     '0.4.1',
+175 silly addNameRange     '0.5.0',
+175 silly addNameRange     '0.6.0',
+175 silly addNameRange     '0.6.1',
+175 silly addNameRange     '0.6.2',
+175 silly addNameRange     '0.7.0',
+175 silly addNameRange     '0.7.1',
+175 silly addNameRange     '0.8.0',
+175 silly addNameRange     '0.8.1',
+175 silly addNameRange     '1.0.0',
+175 silly addNameRange     '1.0.1',
+175 silly addNameRange     '1.1.0',
+175 silly addNameRange     '1.1.1',
+175 silly addNameRange     '1.1.2',
+175 silly addNameRange     '1.1.3',
+175 silly addNameRange     '1.1.4',
+175 silly addNameRange     '1.2.0',
+175 silly addNameRange     '1.3.0',
+175 silly addNameRange     '1.4.0',
+175 silly addNameRange     '1.5.0',
+175 silly addNameRange     '1.6.0',
+175 silly addNameRange     '1.7.0',
+175 silly addNameRange     '1.8.0',
+175 silly addNameRange     '1.9.0',
+175 silly addNameRange     '1.10.0',
+175 silly addNameRange     '1.11.0',
+175 silly addNameRange     '1.11.1' ] ]
+176 verbose addNamed [ 'twilio', '1.11.1' ]
+177 verbose addNamed [ '1.11.1', '1.11.1' ]
+178 silly lockFile 15ee5038-twilio-1-11-1 twilio@1.11.1
+179 verbose lock twilio@1.11.1 /Users/adil/.npm/15ee5038-twilio-1-11-1.lock
+180 silly lockFile 1b11a9d2-mjs-org-twilio-twilio-1-11-1-tgz https://registry.npmjs.org/twilio/-/twilio-1.11.1.tgz
+181 verbose lock https://registry.npmjs.org/twilio/-/twilio-1.11.1.tgz /Users/adil/.npm/1b11a9d2-mjs-org-twilio-twilio-1-11-1-tgz.lock
+182 verbose addRemoteTarball [ 'https://registry.npmjs.org/twilio/-/twilio-1.11.1.tgz',
+182 verbose addRemoteTarball   '70e603d1a61d345bd61c8ee39a277f9605188c56' ]
+183 info retry fetch attempt 1 at 15:55:21
+184 verbose fetch to= /var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/registry.npmjs.org/twilio/-/twilio-1.11.1.tgz
+185 http GET https://registry.npmjs.org/twilio/-/twilio-1.11.1.tgz
+186 verbose git fetch -a origin (https://github.com/DaftMonk/grunt-build-control)
+187 http 200 https://registry.npmjs.org/passport-google-oauth/-/passport-google-oauth-0.2.0.tgz
+188 verbose git rev-list -n1 master 3d03ebbe49f8f963ef43c50af1084a15f56611fa
+189 verbose resolved git url git+https://github.com/DaftMonk/grunt-build-control#3d03ebbe49f8f963ef43c50af1084a15f56611fa
+190 silly lockFile bbaf1f0f--passport-google-oauth-0-2-0-tgz https://registry.npmjs.org/passport-google-oauth/-/passport-google-oauth-0.2.0.tgz
+191 silly lockFile bbaf1f0f--passport-google-oauth-0-2-0-tgz https://registry.npmjs.org/passport-google-oauth/-/passport-google-oauth-0.2.0.tgz
+192 silly lockFile ef11d8df-passport-google-oauth-0-2-0 passport-google-oauth@0.2.0
+193 silly lockFile ef11d8df-passport-google-oauth-0-2-0 passport-google-oauth@0.2.0
+194 silly lockFile 2c491da3-passport-google-oauth-latest passport-google-oauth@latest
+195 silly lockFile 2c491da3-passport-google-oauth-latest passport-google-oauth@latest
+196 verbose tar unpack /var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/1426017321179-0.428689805790782/tmp.tgz
+197 silly lockFile b7db9206-0-428689805790782-tmp-tgz-unpack tar:///var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/1426017321179-0.428689805790782/tmp.tgz-unpack
+198 verbose lock tar:///var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/1426017321179-0.428689805790782/tmp.tgz-unpack /Users/adil/.npm/b7db9206-0-428689805790782-tmp-tgz-unpack.lock
+199 silly lockFile 38383b00-321179-0-428689805790782-tmp-tgz tar:///var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/1426017321179-0.428689805790782/tmp.tgz
+200 verbose lock tar:///var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/1426017321179-0.428689805790782/tmp.tgz /Users/adil/.npm/38383b00-321179-0-428689805790782-tmp-tgz.lock
+201 silly gunzTarPerm modes [ '755', '644' ]
+202 silly gunzTarPerm extractEntry
+203 silly gunzTarPerm modified mode [ '', 509, 493 ]
+204 silly gunzTarPerm extractEntry .gitignore
+205 silly gunzTarPerm modified mode [ '.gitignore', 436, 420 ]
+206 silly gunzTarPerm extractEntry .jshintrc
+207 silly gunzTarPerm modified mode [ '.jshintrc', 436, 420 ]
+208 silly gunzTarPerm extractEntry Gruntfile.js
+209 silly gunzTarPerm modified mode [ 'Gruntfile.js', 436, 420 ]
+210 silly gunzTarPerm extractEntry LICENSE
+211 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+212 silly gunzTarPerm extractEntry README.md
+213 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+214 silly gunzTarPerm extractEntry package.json
+215 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+216 silly gunzTarPerm extractEntry tasks/
+217 silly gunzTarPerm modified mode [ 'tasks/', 509, 493 ]
+218 silly gunzTarPerm extractEntry tasks/build_control.js
+219 silly gunzTarPerm modified mode [ 'tasks/build_control.js', 436, 420 ]
+220 silly gunzTarPerm extractEntry test/
+221 silly gunzTarPerm modified mode [ 'test/', 509, 493 ]
+222 silly gunzTarPerm extractEntry test/build_control_test.js
+223 silly gunzTarPerm modified mode [ 'test/build_control_test.js', 436, 420 ]
+224 silly gunzTarPerm extractEntry test/expected/
+225 silly gunzTarPerm modified mode [ 'test/expected/', 509, 493 ]
+226 silly gunzTarPerm extractEntry test/expected/custom_options
+227 silly gunzTarPerm modified mode [ 'test/expected/custom_options', 436, 420 ]
+228 silly gunzTarPerm extractEntry test/expected/default_options
+229 silly gunzTarPerm modified mode [ 'test/expected/default_options', 436, 420 ]
+230 silly gunzTarPerm extractEntry test/fixtures/
+231 silly gunzTarPerm modified mode [ 'test/fixtures/', 509, 493 ]
+232 silly gunzTarPerm extractEntry test/fixtures/123
+233 silly gunzTarPerm modified mode [ 'test/fixtures/123', 436, 420 ]
+234 silly gunzTarPerm extractEntry test/fixtures/testing
+235 silly gunzTarPerm modified mode [ 'test/fixtures/testing', 436, 420 ]
+236 silly lockFile b7db9206-0-428689805790782-tmp-tgz-unpack tar:///var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/1426017321179-0.428689805790782/tmp.tgz-unpack
+237 silly lockFile b7db9206-0-428689805790782-tmp-tgz-unpack tar:///var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/1426017321179-0.428689805790782/tmp.tgz-unpack
+238 silly lockFile 38383b00-321179-0-428689805790782-tmp-tgz tar:///var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/1426017321179-0.428689805790782/tmp.tgz
+239 silly lockFile 38383b00-321179-0-428689805790782-tmp-tgz tar:///var/folders/v5/d0z_5y4s1219dm7dnnx7b0l00000gn/T/npm-8025-a01307yd/1426017321179-0.428689805790782/tmp.tgz
+240 silly lockFile 7e4d577b-com-DaftMonk-grunt-build-control https://github.com/DaftMonk/grunt-build-control
+241 silly lockFile 7e4d577b-com-DaftMonk-grunt-build-control https://github.com/DaftMonk/grunt-build-control
+242 http 200 https://registry.npmjs.org/twilio/-/twilio-1.11.1.tgz
+243 silly lockFile 1b11a9d2-mjs-org-twilio-twilio-1-11-1-tgz https://registry.npmjs.org/twilio/-/twilio-1.11.1.tgz
+244 silly lockFile 1b11a9d2-mjs-org-twilio-twilio-1-11-1-tgz https://registry.npmjs.org/twilio/-/twilio-1.11.1.tgz
+245 silly lockFile 15ee5038-twilio-1-11-1 twilio@1.11.1
+246 silly lockFile 15ee5038-twilio-1-11-1 twilio@1.11.1
+247 silly lockFile e9cf0675-twilio-1-11-1 twilio@^1.11.1
+248 silly lockFile e9cf0675-twilio-1-11-1 twilio@^1.11.1
+249 error Error: EACCES, mkdir '/Users/adil/.npm/passport-google-oauth/0.2.0'
+249 error  { [Error: EACCES, mkdir '/Users/adil/.npm/passport-google-oauth/0.2.0']
+249 error   errno: 3,
+249 error   code: 'EACCES',
+249 error   path: '/Users/adil/.npm/passport-google-oauth/0.2.0',
+249 error   parent: 'baby-doctor' }
+250 error Please try running this command again as root/Administrator.
+251 error System Darwin 14.0.0
+252 error command "node" "/usr/local/bin/npm" "install"
+253 error cwd /Users/adil/babydoc
+254 error node -v v0.10.32
+255 error npm -v 1.4.28
+256 error path /Users/adil/.npm/passport-google-oauth/0.2.0
+257 error code EACCES
+258 error errno 3
+259 error stack Error: EACCES, mkdir '/Users/adil/.npm/passport-google-oauth/0.2.0'
+260 verbose exit [ 3, true ]
