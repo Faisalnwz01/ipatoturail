@@ -27,7 +27,7 @@ exports.twilio = function(req, res) {
     code4Digit = req.body.document_id.slice(0, 4)
 
     //Send an SMS text message
-    var numbers = ['+17185308914', '+16094396655', '+16094396656']
+    var numbers = ['+17185308914', '+16094396656']
         // var numbers = ['+17185308914']
     for (var i = 0; i < numbers.length; i++) {
         client.sendMessage({
