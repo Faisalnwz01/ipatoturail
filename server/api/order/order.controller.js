@@ -14,18 +14,21 @@ exports.index = function(req, res) {
         return res.json(200, orders);
     });
 };
-
+var code4Digit;
+var orderRecieved;
 
 //Send the intitial text message with order id
 exports.twilio = function(req, res) {
     console.log(req.body, 'req for the body wiht order')
     console.log('hit on back end')
-    var address = req.body.address
-    var code4Digit = req.body.document_id.slice(0, 4)
+    orderRecieved = req;
+    var address = req.body.address;
+
+    code4Digit = req.body.document_id.slice(0, 4)
 
     //Send an SMS text message
-    // var numbers = ['+17185308914', '+16094396655', '+16094396656']
-    var numbers = ['+17185308914']
+    var numbers = ['+17185308914', '+16094396655', '+16094396656']
+        // var numbers = ['+17185308914']
     for (var i = 0; i < numbers.length; i++) {
         client.sendMessage({
 
@@ -68,13 +71,24 @@ exports.twilio = function(req, res) {
 
 // }
 exports.texts = function(req, res) {
-var counterFirstText = 0;
+    var counterFirstText = 0;
     // console.log(req.body)
     // console.log(req.body.Body, 'bodyyyyyyyyyyy')
     // console.log('hit text twilio functions')
     var response = req.body.Body.toLowerCase();
     if (counterFirstText < 1) {
-          ///req.body.From === doctor that got the order
+        ///req.body.From === doctor that got the order
+        var docID = {doctor_id: req.body.From}
+        Order.findById(orderRecieved.params.id, function(err, order) {
+            var updated = _.merge(order, docID);
+            console.log(updated, 'the updated with phonumber as id')
+            updated.save(function(err) {
+                if (err) {
+                    console.log(err, 'errorin updating')
+                }
+
+            });
+        });
 
 
         if (response === "yes " + code4Digit) {
@@ -122,23 +136,23 @@ var counterFirstText = 0;
         }
         counterFirstText++
     }
-    else {
-             client.sendMessage({
-                to: req.body.From, // Any number Twilio can deliver to
-                from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
-                body: 'Sorry you didnt get the order, GoodBye' // body of the SMS message
+    // else {
+    //     client.sendMessage({
+    //         to: req.body.From, // Any number Twilio can deliver to
+    //         from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+    //         body: 'Sorry you didnt get the order, GoodBye' // body of the SMS message
 
-            }, function(err, responseData) { //this function is executed when a response is received from Twilio
-                if (!err) { // "err" is an error received during the request,
-                    console.log(responseData.from); // outputs "+14506667788"
-                    console.log(responseData.body); // outputs "word to your mother."
-                    console.log('hit success')
-                } else {
-                    console.log(err)
-                    console.log('hit error')
-                }
-            });
-    }
+    //     }, function(err, responseData) { //this function is executed when a response is received from Twilio
+    //         if (!err) { // "err" is an error received during the request,
+    //             console.log(responseData.from); // outputs "+14506667788"
+    //             console.log(responseData.body); // outputs "word to your mother."
+    //             console.log('hit success')
+    //         } else {
+    //             console.log(err)
+    //             console.log('hit error')
+    //         }
+    //     });
+    // }
 
 
 

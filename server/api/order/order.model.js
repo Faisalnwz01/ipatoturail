@@ -5,11 +5,12 @@ var mongoose = require('mongoose'),
 
 var OrderSchema = new Schema({
   ParentName: String,
-  document_id: String, 
-  phone: String, 
-  email: String, 
-  address: {}, 
-  status: String
+  document_id: String,
+  phone: String,
+  email: String,
+  address: {},
+  status: String,
+  doctor_id: String
 });
 
 module.exports = mongoose.model('Order', OrderSchema);
