@@ -79,16 +79,15 @@ exports.texts = function(req, res) {
     if (counterFirstText < 1) {
         ///req.body.From === doctor that got the order
         var docID = {doctor_id: req.body.From}
-        Order.findById(orderRecieved.params.id, function(err, order) {
-            var updated = _.merge(order, docID);
-            console.log(updated, 'the updated with phonumber as id')
-            updated.save(function(err) {
-                if (err) {
-                    console.log(err, 'errorin updating')
-                }
-
-            });
-        });
+        // Order.findById(orderRecieved.params.id, function(err, order) {
+        //     var updated = _.merge(order, docID);
+        //     console.log(updated, 'the updated with phonumber as id')
+        //     updated.save(function(err) {
+        //         if (err) {
+        //             console.log(err, 'errorin updating')
+        //         }
+        //     });
+        // });
         ////end of  adding doctor phone to order
 
         if (response === "yes " + code4Digit) {
