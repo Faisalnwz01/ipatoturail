@@ -2,49 +2,55 @@
 
 var _ = require('lodash');
 var Order = require('./order.model');
-
 var client = require('twilio')('AC055e2c406321688db01756618570376e', '3ed6d61c3e9a141a97903453820f65ba');
 var twilio1 = require('twilio')
 
 // Get list of orders
 exports.index = function(req, res) {
-  Order.find(function(err, orders) {
-    if (err) {
-      return handleError(res, err);
-    }
-    return res.json(200, orders);
-  });
+    Order.find(function(err, orders) {
+        if (err) {
+            return handleError(res, err);
+        }
+        return res.json(200, orders);
+    });
 };
 
+
+//Send the intitial text message with order id
 exports.twilio = function(req, res) {
-  console.log('hit on back end')
+    console.log(req.body, 'req for the body wiht order')
+    console.log('hit on back end')
+    var address = req.body.address
+    var code4Digit = req.body.document_id.slice(0, 4)
+
     //Send an SMS text message
-  var numbers = ['+17185308914', '+16094396655', '+16094396656']
-  for (var i = 0; i < numbers.length; i++) {
-    client.sendMessage({
+    // var numbers = ['+17185308914', '+16094396655', '+16094396656']
+    var numbers = ['+17185308914']
+    for (var i = 0; i < numbers.length; i++) {
+        client.sendMessage({
 
-      to: numbers[i], // Any number Twilio can deliver to
-      from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
-      body: 'word to your mother.' // body of the SMS message
+            to: numbers[i], // Any number Twilio can deliver to
+            from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+            body: 'Patient ' + address.name + ' with ph# ' + address.phone + ' needs help at ' + address.street1 + " " + address.city + " " + address.state + " " + address.zip + " if you accept text back yes plus this code " + code4Digit // body of the SMS message
 
-    }, function(err, responseData) { //this function is executed when a response is received from Twilio
+        }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
-      if (!err) { // "err" is an error received during the request, if any
+            if (!err) { // "err" is an error received during the request, if any
 
-        // "responseData" is a JavaScript object containing data received from Twilio.
-        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
-        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+                // "responseData" is a JavaScript object containing data received from Twilio.
+                // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+                // http://www.twilio.com/docs/api/rest/sending-sms#example-1
 
-        console.log(responseData.from); // outputs "+14506667788"
-        console.log(responseData.body); // outputs "word to your mother."
-        console.log('hit success')
+                console.log(responseData.from); // outputs "+14506667788"
+                console.log(responseData.body); // outputs "word to your mother."
+                console.log('hit success')
 
-      } else {
-        console.log(err)
-        console.log('hit error')
-      }
-    });
-  }
+            } else {
+                console.log(err)
+                console.log('hit error')
+            }
+        });
+    }
 }
 
 // exports.texts = function(req,res){
@@ -61,151 +67,159 @@ exports.twilio = function(req, res) {
 
 
 // }
+exports.texts = function(req, res) {
+var counterFirstText = 0;
+    // console.log(req.body)
+    // console.log(req.body.Body, 'bodyyyyyyyyyyy')
+    // console.log('hit text twilio functions')
+    var response = req.body.Body.toLowerCase();
+    if (counterFirstText < 1) {
+          ///req.body.From === doctor that got the order
 
-exports.texts =function(req, res){
- console.log(req.body)
-  console.log(req.body.Body, 'bodyyyyyyyyyyy')
-  console.log('hit text twilio functions')
 
-if(req.body.Body === "yes"){
-  console.log('hit yes')
-    client.sendMessage({
+        if (response === "yes " + code4Digit) {
+            console.log('hit yes')
+            client.sendMessage({
 
-      to: req.body.From, // Any number Twilio can deliver to
-      from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
-      body: 'you got the order' // body of the SMS message
+                to: req.body.From, // Any number Twilio can deliver to
+                from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+                body: 'Hey, you got the order. You have 40 minutes to get to this location. Goodluck!!' // body of the SMS message
 
-    }, function(err, responseData) { //this function is executed when a response is received from Twilio
+            }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
-      if (!err) { // "err" is an error received during the request, if any
+                if (!err) { // "err" is an error received during the request, if any
 
-        // "responseData" is a JavaScript object containing data received from Twilio.
-        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
-        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+                    // "responseData" is a JavaScript object containing data received from Twilio.
+                    // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+                    // http://www.twilio.com/docs/api/rest/sending-sms#example-1
 
-        console.log(responseData.from); // outputs "+14506667788"
-        console.log(responseData.body); // outputs "word to your mother."
-        console.log('hit success')
+                    console.log(responseData.from); // outputs "+14506667788"
+                    console.log(responseData.body); // outputs "word to your mother."
+                    console.log('hit success')
 
-      } else {
-        console.log(err)
-        console.log('hit error')
-      }
-    });
+                } else {
+                    console.log(err)
+                    console.log('hit error')
+                }
+            });
 
+        } else {
+            client.sendMessage({
+                to: req.body.From, // Any number Twilio can deliver to
+                from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+                body: 'fuck off' // body of the SMS message
+
+            }, function(err, responseData) { //this function is executed when a response is received from Twilio
+                if (!err) { // "err" is an error received during the request,
+                    console.log(responseData.from); // outputs "+14506667788"
+                    console.log(responseData.body); // outputs "word to your mother."
+                    console.log('hit success')
+                } else {
+                    console.log(err)
+                    console.log('hit error')
+                }
+            });
+        }
+        counterFirstText++
+    }
+    else {
+             client.sendMessage({
+                to: req.body.From, // Any number Twilio can deliver to
+                from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+                body: 'Sorry you didnt get the order, GoodBye' // body of the SMS message
+
+            }, function(err, responseData) { //this function is executed when a response is received from Twilio
+                if (!err) { // "err" is an error received during the request,
+                    console.log(responseData.from); // outputs "+14506667788"
+                    console.log(responseData.body); // outputs "word to your mother."
+                    console.log('hit success')
+                } else {
+                    console.log(err)
+                    console.log('hit error')
+                }
+            });
     }
 
-    else{
-      
-      
-       client.sendMessage({
-
-      to: req.body.From,  // Any number Twilio can deliver to
-      from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
-      body: 'fuck off' // body of the SMS message
-
-    }, function(err, responseData) { //this function is executed when a response is received from Twilio
-
-      if (!err) { // "err" is an error received during the request, if any
-
-        // "responseData" is a JavaScript object containing data received from Twilio.
-        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
-        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
-
-        console.log(responseData.from); // outputs "+14506667788"
-        console.log(responseData.body); // outputs "word to your mother."
-        console.log('hit success')
-
-      } else {
-        console.log(err)
-        console.log('hit error')
-      }
-    });
 
 
-
-    }
-
-
-
-   // if (twilio1.validateExpressRequest(req, '3ed6d61c3e9a141a97903453820f65ba')) {
-   //      console.log('hide success')
-   //      var twiml = new twilio1.TwimlResponse();
-   //      // console.log(twiml.toString(), 'twiml to strong')
-   //      twiml.sms('Hi!  Thanks for checking out my app!')
-   //      res.send(twiml.toString());
-   //  }
-   //  else {
-   //    console.log('hit error')
-   //    var twiml = new twilio1.TwimlResponse();
-   //    twiml.sms('fuck off')
-   //      res.send('you are not twilio.  Buzz off.');
-   //  }
+    // if (twilio1.validateExpressRequest(req, '3ed6d61c3e9a141a97903453820f65ba')) {
+    //      console.log('hide success')
+    //      var twiml = new twilio1.TwimlResponse();
+    //      // console.log(twiml.toString(), 'twiml to strong')
+    //      twiml.sms('Hi!  Thanks for checking out my app!')
+    //      res.send(twiml.toString());
+    //  }
+    //  else {
+    //    console.log('hit error')
+    //    var twiml = new twilio1.TwimlResponse();
+    //    twiml.sms('fuck off')
+    //      res.send('you are not twilio.  Buzz off.');
+    //  }
 }
 
 // Get a single order
 exports.show = function(req, res) {
-  Order.findById(req.params.id, function(err, order) {
-    if (err) {
-      return handleError(res, err);
-    }
-    if (!order) {
-      return res.send(404);
-    }
-    return res.json(order);
-  });
+    Order.findById(req.params.id, function(err, order) {
+        if (err) {
+            return handleError(res, err);
+        }
+        if (!order) {
+            return res.send(404);
+        }
+        return res.json(order);
+    });
 };
 
 // Creates a new order in the DB.
 exports.create = function(req, res) {
-  Order.create(req.body, function(err, order) {
-    if (err) {
-      return handleError(res, err);
-    }
-    return res.json(201, order);
-  });
+    Order.create(req.body, function(err, order) {
+        if (err) {
+            return handleError(res, err);
+        }
+        return res.json(201, order);
+    });
 };
 
 // Updates an existing order in the DB.
 exports.update = function(req, res) {
-  if (req.body._id) {
-    delete req.body._id;
-  }
-  Order.findById(req.params.id, function(err, order) {
-    if (err) {
-      return handleError(res, err);
+    if (req.body._id) {
+        delete req.body._id;
     }
-    if (!order) {
-      return res.send(404);
-    }
-    var updated = _.merge(order, req.body);
-    updated.save(function(err) {
-      if (err) {
-        return handleError(res, err);
-      }
-      return res.json(200, order);
+    Order.findById(req.params.id, function(err, order) {
+        if (err) {
+            return handleError(res, err);
+        }
+        if (!order) {
+            return res.send(404);
+        }
+        var updated = _.merge(order, req.body);
+        updated.save(function(err) {
+            if (err) {
+                return handleError(res, err);
+            }
+            return res.json(200, order);
+        });
     });
-  });
 };
 
 // Deletes a order from the DB.
 exports.destroy = function(req, res) {
-  Order.findById(req.params.id, function(err, order) {
-    if (err) {
-      return handleError(res, err);
-    }
-    if (!order) {
-      return res.send(404);
-    }
-    order.remove(function(err) {
-      if (err) {
-        return handleError(res, err);
-      }
-      return res.send(204);
+    Order.findById(req.params.id, function(err, order) {
+        if (err) {
+            return handleError(res, err);
+        }
+        if (!order) {
+            return res.send(404);
+        }
+        order.remove(function(err) {
+            if (err) {
+                return handleError(res, err);
+            }
+            return res.send(204);
+        });
     });
-  });
 };
 
 function handleError(res, err) {
-  return res.send(500, err);
+    return res.send(500, err);
 }
