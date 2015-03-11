@@ -27,8 +27,8 @@ exports.twilio = function(req, res) {
     code4Digit = req.body.document_id.slice(0, 4)
 
     //Send an SMS text message
-    var numbers = ['+17185308914', '+16094396656']
-        // var numbers = ['+17185308914']
+    // var numbers = ['+17185308914', '+16094396656']
+        var numbers = ['+17185308914']
     for (var i = 0; i < numbers.length; i++) {
         client.sendMessage({
 
@@ -79,11 +79,12 @@ exports.texts = function(req, res) {
     if (counterFirstText < 1) {
       console.log("***********", orderRecieved, 'order recieved ****************************')
         ///req.body.From === doctor that got the order
-        var docID = {doctor_id: req.body.From}
+        // var docID = {doctor_id: req.body.From}
         Order.findById(orderRecieved.body.document_id, function(err, order) {
-            var updated = _.merge(order, docID);
-            console.log(updated, 'the updated with phonumber as id')
-            updated.save(function(err) {
+          console.log(order, "here is the order")
+            order.doctor_id = req.body.From
+            console.log(order, 'the updated with phonumber as id')
+            order.save(function(err) {
                 if (err) {
                     console.log(err, 'errorin updating')
                 }
