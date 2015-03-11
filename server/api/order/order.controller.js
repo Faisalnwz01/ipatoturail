@@ -77,18 +77,18 @@ exports.texts = function(req, res) {
     // console.log('hit text twilio functions')
     var response = req.body.Body.toLowerCase();
     if (counterFirstText < 1) {
-      console.log(orderRecieved, 'order recieved ****************************')
+      console.log("***********", orderRecieved, 'order recieved ****************************')
         ///req.body.From === doctor that got the order
         var docID = {doctor_id: req.body.From}
-        // Order.findById(orderRecieved.params.id, function(err, order) {
-        //     var updated = _.merge(order, docID);
-        //     console.log(updated, 'the updated with phonumber as id')
-        //     updated.save(function(err) {
-        //         if (err) {
-        //             console.log(err, 'errorin updating')
-        //         }
-        //     });
-        // });
+        Order.findById(orderRecieved.body.document_id, function(err, order) {
+            var updated = _.merge(order, docID);
+            console.log(updated, 'the updated with phonumber as id')
+            updated.save(function(err) {
+                if (err) {
+                    console.log(err, 'errorin updating')
+                }
+            });
+        });
         ////end of  adding doctor phone to order
 
         if (response === "yes " + code4Digit) {
