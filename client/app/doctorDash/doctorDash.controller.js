@@ -40,6 +40,7 @@ angular.module('babyDoctorApp')
                 if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone) {
                     console.log('data.data', data.data[i])
                     $scope.trueVaultDocId = data.data[i].document_id
+
                     console.log($scope.trueVaultDocId, 'document ID')
                     $scope.truevaultGetDocs($scope.trueVaultDocId)
                     console.log($scope.trueVaultDocId)
