@@ -28,7 +28,7 @@ exports.twilio = function(req, res) {
 
     //Send an SMS text message
     // var numbers = ['+17185308914', '+16094396656']
-        var numbers = ['+17185308914']
+    var numbers = ['+17185308914']
     for (var i = 0; i < numbers.length; i++) {
         client.sendMessage({
 
@@ -77,20 +77,36 @@ exports.texts = function(req, res) {
     // console.log('hit text twilio functions')
     var response = req.body.Body.toLowerCase();
     if (counterFirstText < 1) {
-      console.log("***********", orderRecieved, 'order recieved ****************************')
-      console.log("***********", orderRecieved.body.document_id, 'params recieved ****************************')
-        ///req.body.From === doctor that got the order
-        // var docID = {doctor_id: req.body.From}
-        Order.findById(orderRecieved.body.document_id, function(err, order) {
-          console.log(order, "here is the order")
-            order.doctor_id = req.body.From
-            console.log(order, 'the updated with phonumber as id')
-            order.save(function(err) {
-                if (err) {
-                    console.log(err, 'errorin updating')
-                }
-            });
+        console.log("***********", orderRecieved, 'order recieved ****************************')
+        console.log("***********", orderRecieved.body.document_id, 'params recieved ****************************')
+            ///req.body.From === doctor that got the order
+            // var docID = {doctor_id: req.body.From}
+        var query = Order.where({
+            document_id: orderRecieved.body.document_id
         });
+        query.findOne(function(err, order) {
+            if (err) return handleError(err);
+            if (order) {
+              console.log(order, 'here is the order i foudn for you sonnn')
+              order.doctor_id = req.body.From
+                console.log(order, 'here is the order i found for you with added doctor #######')
+                order.save(function(err) {
+                    if (err) {
+                        console.log(err, 'errorin updating')
+                    }
+                });
+            }
+        });
+        // Order.findById(orderRecieved.body.document_id, function(err, order) {
+        //     console.log(order, "here is the order")
+        //     order.doctor_id = req.body.From
+        //     console.log(order, 'the updated with phonumber as id')
+        //     order.save(function(err) {
+        //         if (err) {
+        //             console.log(err, 'errorin updating')
+        //         }
+        //     });
+        // });
         ////end of  adding doctor phone to order
 
         if (response === "yes " + code4Digit) {
