@@ -1,55 +1,78 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<h1>Current Order - {{ParentInfo.status}}</h1>
+</center>
+<div class="container">
+  <div class ="row">
+  <div class="col-md-5">
+  <h2> Child Information</h2>
+  <ul class = 'list-group'>
+    <li class ="list-group-item">Name - {{currentOrder.name}}</li>
+    <li class ="list-group-item">Date Of Birth - {{currentOrder.dob}}</li>
+    <li class ="list-group-item">SSN - {{currentOrder.ssn}}</li>
+    <li class ="list-group-item">Conditions -{{currentOrder.conditions}} </li>
+    <li class ="list-group-item">Sympotms -{{currentOrder.sympotoms}} </li>
+ 
+  </ul>
 
-<div ng-include="'components/doctor-navbar/docNavbar.html'"></div>
+  
+</div>
+
+ <div class="col-md-5">
+  <h2> Parent Information </h2>
+  <ul class = 'list-group'>
+    <li class ="list-group-item">Name - {{ParentInfo.ParentName}}</li>
+    <li class ="list-group-item">Address -  {{ParentInfo.address.street1}}, {{ParentInfo.address.street2}}<br> {{ParentInfo.address.city}}, {{ParentInfo.address.state}}<br> {{ParentInfo.address.zip}} </li>
+    <li class ="list-group-item">Phone -  {{ParentInfo.phone}}</li>
+    <li class ="list-group-item">Email Address-  {{ParentInfo.email}}</li>
+    <li class ="list-group-item">Account ID -  {{ParentInfo.document_id}}</li>
+    
+  </ul>
+
+  
+</div>
+</div>
+</div>
+
+<div class="container">
+
+<form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address"> 
 
 
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-      <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">
-
-            <center><h1>Current Order</h2></center>
+                <div class="input-field col s5">
+                    <textarea id="conditions" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.conditions"></textarea>
+                    <label class="active" for="city">Description Of Condistions</label>
+                </div>
+   
 
 
+                 <div class="input-field col s5">
+                    <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.sympotoms"></textarea>
+                    <label class="active" for="city">Tests Performed</label>
+                </div>
+                  
 
 
-            <div class="col-md-4 mb">
-              <!-- INSTAGRAM PANEL -->
-              <div class="instagram-panel pn">
-                <i class="fa fa-instagram fa-4x"></i>
-                <p style="color:black;">{{currentOrder}}<br/>
-
-                </p>
-                <p><i class="fa fa-comment"></i> 18 | <i class="fa fa-heart"></i> 49</p>
-              </div>
-            </div><!-- /col-md-4 -->
+                 <div class="input-field col s5">
+                    <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.sympotoms"></textarea>
+                    <label class="active" for="city">Tests Performed</label>
+                </div>
+                 
+            
 
 
 
-          </div><!-- /row -->
+            <div class="row">
+                <button class=" col s5 btn waves-effect waves-light left" ng-click="submitChildInfo()" name="action" ng-class="buttonColor">Submit
+                </button>
+            </div>
 
-
-
-                  </div><!-- /col-lg-9 END SECTION MIDDLE -->
-
-
-    {{currentOrder}}
-
-              </div><! --/row -->
-          </section>
-      </section>
-
-
-      <!--main content end-->
-      <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-      <button ng-click="truevaultGetDocs()">BUtton</button>
-              2015 - BabyDoctor
-              <a href="index.html#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
-      <!--footer end-->
+         
+              </form>
+ </div>
+   
