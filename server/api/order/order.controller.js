@@ -78,7 +78,7 @@ exports.texts = function(req, res) {
     var response = req.body.Body.toLowerCase();
     if (counterFirstText < 1) {
       console.log("***********", orderRecieved, 'order recieved ****************************')
-      console.log("***********", orderRecieved.params, 'params recieved ****************************')
+      console.log("***********", orderRecieved.body.document_id, 'params recieved ****************************')
         ///req.body.From === doctor that got the order
         // var docID = {doctor_id: req.body.From}
         Order.findById(orderRecieved.body.document_id, function(err, order) {
