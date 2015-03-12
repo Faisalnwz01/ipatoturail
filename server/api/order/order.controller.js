@@ -70,7 +70,7 @@ exports.twilio = function(req, res) {
 
 
 // }
-var counterFirstText = 0;
+
 exports.texts = function(req, res) {
     var query = Order.where({
         document_id: orderRecieved.body.document_id
@@ -143,7 +143,7 @@ exports.texts = function(req, res) {
                 }
             });
         }
-        counterFirstText++
+
     } else {
         client.sendMessage({
             to: req.body.From, // Any number Twilio can deliver to
@@ -162,22 +162,6 @@ exports.texts = function(req, res) {
         });
     }
   });
-
-
-
-    // if (twilio1.validateExpressRequest(req, '3ed6d61c3e9a141a97903453820f65ba')) {
-    //      console.log('hide success')
-    //      var twiml = new twilio1.TwimlResponse();
-    //      // console.log(twiml.toString(), 'twiml to strong')
-    //      twiml.sms('Hi!  Thanks for checking out my app!')
-    //      res.send(twiml.toString());
-    //  }
-    //  else {
-    //    console.log('hit error')
-    //    var twiml = new twilio1.TwimlResponse();
-    //    twiml.sms('fuck off')
-    //      res.send('you are not twilio.  Buzz off.');
-    //  }
 }
 
 // Get a single order
