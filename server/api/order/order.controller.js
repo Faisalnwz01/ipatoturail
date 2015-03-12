@@ -70,15 +70,13 @@ exports.twilio = function(req, res) {
 
 
 // }
-exports.texts = function(req, res) {
     var counterFirstText = 0;
+exports.texts = function(req, res) {
     // console.log(req.body)
     // console.log(req.body.Body, 'bodyyyyyyyyyyy')
     // console.log('hit text twilio functions')
     var response = req.body.Body.toLowerCase();
     if (counterFirstText < 1) {
-        console.log("***********", orderRecieved, 'order recieved ****************************')
-        console.log("***********", orderRecieved.body.document_id, 'params recieved ****************************')
             ///req.body.From === doctor that got the order
             // var docID = {doctor_id: req.body.From}
         var query = Order.where({
@@ -97,16 +95,7 @@ exports.texts = function(req, res) {
                 });
             }
         });
-        // Order.findById(orderRecieved.body.document_id, function(err, order) {
-        //     console.log(order, "here is the order")
-        //     order.doctor_id = req.body.From
-        //     console.log(order, 'the updated with phonumber as id')
-        //     order.save(function(err) {
-        //         if (err) {
-        //             console.log(err, 'errorin updating')
-        //         }
-        //     });
-        // });
+
         ////end of  adding doctor phone to order
 
         if (response === "yes " + code4Digit) {
@@ -154,23 +143,23 @@ exports.texts = function(req, res) {
         }
         counterFirstText++
     }
-    // else {
-    //     client.sendMessage({
-    //         to: req.body.From, // Any number Twilio can deliver to
-    //         from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
-    //         body: 'Sorry you didnt get the order, GoodBye' // body of the SMS message
+    else {
+        client.sendMessage({
+            to: req.body.From, // Any number Twilio can deliver to
+            from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+            body: 'Sorry you didnt get the order, GoodBye' // body of the SMS message
 
-    //     }, function(err, responseData) { //this function is executed when a response is received from Twilio
-    //         if (!err) { // "err" is an error received during the request,
-    //             console.log(responseData.from); // outputs "+14506667788"
-    //             console.log(responseData.body); // outputs "word to your mother."
-    //             console.log('hit success')
-    //         } else {
-    //             console.log(err)
-    //             console.log('hit error')
-    //         }
-    //     });
-    // }
+        }, function(err, responseData) { //this function is executed when a response is received from Twilio
+            if (!err) { // "err" is an error received during the request,
+                console.log(responseData.from); // outputs "+14506667788"
+                console.log(responseData.body); // outputs "word to your mother."
+                console.log('hit success')
+            } else {
+                console.log(err)
+                console.log('hit error')
+            }
+        });
+    }
 
 
 
