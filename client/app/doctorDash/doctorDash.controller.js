@@ -20,7 +20,8 @@ angular.module('babyDoctorApp')
             }
             $http(doc).success(function(data) {
                 // console.log(data)
-                console.log(JSON.parse(atob(data)))
+
+                console.log(JSON.parse(atob(data)), 'user data from true vault')
 
                 // return JSON.parse(atob(data));
 
@@ -31,18 +32,14 @@ angular.module('babyDoctorApp')
         $scope.getDataTruevault = function(argument) {
 
             $http.get('api/orders').then(function(data) {
-                console.log(data.data, "what we get back from the order get call")
-                console.log(data.data[0].doctor_id, "data.data[0].doctor_id")
-                $scope.trueVaultDocId = data.data[0].document_id
-                console.log($scope.trueVaultDocId, '$scope.truevaultdocid')
-                console.log($scope.getCurrentUser.address.phone 'get current user.address.phone')
+
 
                 for (var i = 0; i < data.data.length; i++) {
                     if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone) {
                       console.log('data.data', data.data[i])
-                        // $scope.trueVaultDocId = data.data[i].document_id
+                        $scope.trueVaultDocId = data.data[i].document_id
                     console.log($scope.trueVaultDocId, 'document ID')
-                    // $scope.truevaultGetDocs($scope.trueVaultDocId)
+                    $scope.truevaultGetDocs($scope.trueVaultDocId)
                     console.log($scope.trueVaultDocId)
                   }
                 };
