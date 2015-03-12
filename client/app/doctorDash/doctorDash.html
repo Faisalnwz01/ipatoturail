@@ -45,22 +45,22 @@
 
 
                 <div class="input-field col s5">
-                    <textarea id="conditions" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.conditions"></textarea>
-                    <label class="active" for="city">Description Of Condistions</label>
+                    <textarea id="conditions" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.conditions"></textarea>
+                    <label class="active" for="city">Description Of Conditions</label>
                 </div>
    
 
 
                  <div class="input-field col s5">
-                    <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.sympotoms"></textarea>
+                    <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.testsPerformed"></textarea>
                     <label class="active" for="city">Tests Performed</label>
                 </div>
                   
 
 
                  <div class="input-field col s5">
-                    <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.sympotoms"></textarea>
-                    <label class="active" for="city">Tests Performed</label>
+                    <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.perscriptions"></textarea>
+                    <label class="active" for="city">Perscriptions</label>
                 </div>
                  
             
@@ -68,7 +68,7 @@
 
 
             <div class="row">
-                <button class=" col s5 btn waves-effect waves-light left" ng-click="submitChildInfo()" name="action" ng-class="buttonColor">Submit
+                <button class=" col s5 btn waves-effect waves-light left" ng-click="truevaultSubmitDoctorForm()" name="action" ng-class="buttonColor">Submit
                 </button>
             </div>
 
