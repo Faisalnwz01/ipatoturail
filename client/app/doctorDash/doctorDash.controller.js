@@ -22,29 +22,29 @@ angular.module('babyDoctorApp')
                 // console.log($scope.currentOrder)
 
 
-                  $scope.currentOrder = JSON.parse(atob(data))
-                // return JSON.parse(atob(data));
-                 console.log($scope.currentOrder);
+                $scope.currentOrder = JSON.parse(atob(data))
+                    // return JSON.parse(atob(data));
+                console.log($scope.currentOrder);
 
 
             }).error(function(data) {
                 console.log(data)
             });
         }
-        $scope.getDataTruevault = function(argument) {
-
-            $http.get('api/orders').then(function(data) {
 
 
-                for (var i = 0; i < data.data.length; i++) {
-                    if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone) {
-                      console.log('data.data', data.data[i])
-                        $scope.trueVaultDocId = data.data[i].document_id
+        $http.get('api/orders').then(function(data) {
+
+
+            for (var i = 0; i < data.data.length; i++) {
+                if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone) {
+                    console.log('data.data', data.data[i])
+                    $scope.trueVaultDocId = data.data[i].document_id
                     console.log($scope.trueVaultDocId, 'document ID')
                     $scope.truevaultGetDocs($scope.trueVaultDocId)
                     console.log($scope.trueVaultDocId)
-                  }
-                };
-            })
-        }
+                }
+            };
+        })
+
     })
