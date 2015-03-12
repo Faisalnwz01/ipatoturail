@@ -36,10 +36,11 @@ angular.module('babyDoctorApp')
                 $scope.trueVaultDocId = data.data[0].document_id
                 console.log($scope.trueVaultDocId, '$scope.truevaultdocid')
                 console.log($scope.getCurrentUser.address.phone 'get current user.address.phone')
+
                 for (var i = 0; i < data.data.length; i++) {
                     if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone) {
                       console.log('data.data', data.data[i])
-                        $scope.trueVaultDocId = data.data[i].document_id
+                        // $scope.trueVaultDocId = data.data[i].document_id
                     console.log($scope.trueVaultDocId, 'document ID')
                     // $scope.truevaultGetDocs($scope.trueVaultDocId)
                     console.log($scope.trueVaultDocId)
