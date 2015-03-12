@@ -19,11 +19,13 @@ angular.module('babyDoctorApp')
                 // }
             }
             $http(doc).success(function(data) {
-                // console.log(data)
+                // console.log($scope.currentOrder)
 
-                console.log(JSON.parse(atob(data)), 'user data from true vault')
 
+                  $scope.currentOrder = JSON.parse(atob(data))
                 // return JSON.parse(atob(data));
+                 console.log($scope.currentOrder);
+
 
             }).error(function(data) {
                 console.log(data)

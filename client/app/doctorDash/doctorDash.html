@@ -9,47 +9,23 @@
       <section id="main-content">
           <section class="wrapper">
 
-            <center><h1>Wellcome Doctor</h1></center>
-          <div class="row">
-            <div class="col-md-4 col-sm-4 mb">
-              <!-- REVENUE PANEL -->
-              <div class="darkblue-panel pn">
-                <div class="darkblue-header">
-                  <h5>Which service you can provide?</h5>
-                </div>
-                <div class="chart mt">
-                  <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
-                </div>
-                <p class="mt"><b>Checkup</b><br/>prescription</p>
-              </div>
-            </div><!-- /col-md-4 -->
+            <center><h1>Current Order</h2></center>
+
+
 
 
             <div class="col-md-4 mb">
               <!-- INSTAGRAM PANEL -->
               <div class="instagram-panel pn">
                 <i class="fa fa-instagram fa-4x"></i>
-                <p style="color:black;">checkout list of something<br/>
-                  something here
+                <p style="color:black;">{{currentOrder}}<br/>
+
                 </p>
                 <p><i class="fa fa-comment"></i> 18 | <i class="fa fa-heart"></i> 49</p>
               </div>
             </div><!-- /col-md-4 -->
 
-            <div class="col-md-4 col-sm-4 mb">
-              <!-- REVENUE PANEL -->
-              <div class="darkblue-panel pn">
-                <div class="darkblue-header">
-                  <h5>REVENUE</h5>
-                </div>
-                <div class="chart mt">
-                  <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
-                </div>
-                <p class="mt"> how much did you make?</p>
-                <p class="mt"><b>$ 17,980</b><br/>Month Income</p>
-                <button ng-click="getDataTruevault()"> click here to make the call to truevault</button>
-              </div>
-            </div><!-- /col-md-4 -->
+
 
           </div><!-- /row -->
 
@@ -58,72 +34,8 @@
                   </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
 
-      <!-- **********************************************************************************************************************************************************
-      RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->
+    {{currentOrder}}
 
-                  <div class="col-lg-3 ds">
-
-                       <!-- USERS ONLINE SECTION -->
-            <h3>TEAM MEMBERS</h3>
-            <h5>Who to call for help?</h5>
-                      <!-- First Member -->
-                      <div class="desc">
-                        <div class="thumb">
-                          <img class="img-circle" src="assets/img/ui-divya.jpg" width="35px" height="35px" align="">
-                        </div>
-                        <div class="details">
-                          <p><a href="#">DIVYA MANIAN</a><br/>
-                             <muted>Available</muted>
-                          </p>
-                        </div>
-                      </div>
-                      <!-- Second Member -->
-                      <div class="desc">
-                        <div class="thumb">
-                          <img class="img-circle" src="assets/img/ui-sherman.jpg" width="35px" height="35px" align="">
-                        </div>
-                        <div class="details">
-                          <p><a href="#">DJ SHERMAN</a><br/>
-                             <muted>I am Busy</muted>
-                          </p>
-                        </div>
-                      </div>
-                      <!-- Third Member -->
-                      <div class="desc">
-                        <div class="thumb">
-                          <img class="img-circle" src="assets/img/ui-danro.jpg" width="35px" height="35px" align="">
-                        </div>
-                        <div class="details">
-                          <p><a href="#">DAN ROGERS</a><br/>
-                             <muted>Available</muted>
-                          </p>
-                        </div>
-                      </div>
-                      <!-- Fourth Member -->
-                      <div class="desc">
-                        <div class="thumb">
-                          <img class="img-circle" src="assets/img/ui-zac.jpg" width="35px" height="35px" align="">
-                        </div>
-                        <div class="details">
-                          <p><a href="#">Zac Sniders</a><br/>
-                             <muted>Available</muted>
-                          </p>
-                        </div>
-                      </div>
-                      <!-- Fifth Member -->
-                      <div class="desc">
-                        <div class="thumb">
-                          <img class="img-circle" src="assets/img/ui-sam.jpg" width="35px" height="35px" align="">
-                        </div>
-                        <div class="details">
-                          <p><a href="#">Marcel Newman</a><br/>
-                             <muted>Available</muted>
-                          </p>
-                        </div>
-                      </div>
-
-                  </div><!-- /col-lg-3 -->
               </div><! --/row -->
           </section>
       </section>
