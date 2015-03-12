@@ -35,7 +35,7 @@ angular.module('babyDoctorApp')
                console.log(data.data[0].doctor_id, "data.data[0].doctor_id")
                $scope.trueVaultDocId = data.data[0].document_id
                console.log($scope.trueVaultDocId, '$scope.truevaultdocid')
-               console.log($scope.getCurrentUser.address.phone 'get current user.address.phone')
+               console.log($scope.getCurrentUser.address.phone, 'get current user.address.phone')
                 console.log(data.data, "what we get back from the order get call")
                 for (var i = 0; i < data.data.length; i++) {
                     if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone) {
