@@ -28,14 +28,17 @@ angular.module('babyDoctorApp')
                 console.log(data)
             });
         }
+        $scope.getDataTruevault = function(argument) {
 
-        $http.get('api/orders').then(function(data) {
-          for (var i = 0; i < data.data.length; i++) {
-            if(data.data[i].doctor_id === $scope.getCurrentUser.address.phone)
-              $scope.trueVaultDocId = data.data[i].document_id
-            $scope.truevaultGetDocs($scope.trueVaultDocId)
-            console.log($scope.trueVaultDocId)
-          };
-        })
-
+            $http.get('api/orders').then(function(data) {
+                console.log(data, "what we get back from the order get call")
+                for (var i = 0; i < data.data.length; i++) {
+                    if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone)
+                        $scope.trueVaultDocId = data.data[i].document_id
+                    console.log($scope.trueVaultDocId, 'document ID')
+                    $scope.truevaultGetDocs($scope.trueVaultDocId)
+                    console.log($scope.trueVaultDocId)
+                };
+            })
+        }
     })
