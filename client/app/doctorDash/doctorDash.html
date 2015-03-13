@@ -5,74 +5,75 @@
 <br>
 <br>
 <center>
-<h1>Current Order - {{ParentInfo.status}}</h1>
+    <h1>Current Order - {{ParentInfo.status}}</h1>
 </center>
 <div class="container">
-  <div class ="row">
-  <div class="col-md-5">
-  <h2> Child Information</h2>
-  <ul class = 'list-group'>
-    <li class ="list-group-item">Name - {{currentOrder.name}}</li>
-    <li class ="list-group-item">Date Of Birth - {{currentOrder.dob}}</li>
-    <li class ="list-group-item">SSN - {{currentOrder.ssn}}</li>
-    <li class ="list-group-item">Conditions -{{currentOrder.conditions}} </li>
-    <li class ="list-group-item">Sympotms -{{currentOrder.sympotoms}} </li>
- 
-  </ul>
+    <div class="row">
+        <div class="col-md-5">
+            <h2> Child Information</h2>
+            <ul class='list-group'>
+                <li class="list-group-item">Name - {{currentOrder.name}}</li>
+                <li class="list-group-item">Date Of Birth - {{currentOrder.dob}}</li>
+                <li class="list-group-item">SSN - {{currentOrder.ssn}}</li>
+                <li class="list-group-item">Conditions -{{currentOrder.conditions}} </li>
+                <li class="list-group-item">Sympotms -{{currentOrder.sympotoms}} </li>
 
-  
-</div>
+            </ul>
 
- <div class="col-md-5">
-  <h2> Parent Information </h2>
-  <ul class = 'list-group'>
-    <li class ="list-group-item">Name - {{ParentInfo.ParentName}}</li>
-    <li class ="list-group-item">Address -  {{ParentInfo.address.street1}}, {{ParentInfo.address.street2}}<br> {{ParentInfo.address.city}}, {{ParentInfo.address.state}}<br> {{ParentInfo.address.zip}} </li>
-    <li class ="list-group-item">Phone -  {{ParentInfo.phone}}</li>
-    <li class ="list-group-item">Email Address-  {{ParentInfo.email}}</li>
-    <li class ="list-group-item">Account ID -  {{ParentInfo.document_id}}</li>
-    
-  </ul>
 
-  
-</div>
-</div>
+        </div>
+
+        <div class="col-md-5">
+            <h2> Parent Information </h2>
+            <ul class='list-group'>
+                <li class="list-group-item">Name - {{ParentInfo.ParentName}}</li>
+                <li class="list-group-item">Address - {{ParentInfo.address.street1}}, {{ParentInfo.address.street2}}
+                    <br> {{ParentInfo.address.city}}, {{ParentInfo.address.state}}
+                    <br> {{ParentInfo.address.zip}} </li>
+                <li class="list-group-item">Phone - {{ParentInfo.phone}}</li>
+                <li class="list-group-item">Email Address- {{ParentInfo.email}}</li>
+                <li class="list-group-item">Account ID - {{ParentInfo.document_id}}</li>
+
+            </ul>
+
+
+        </div>
+    </div>
 </div>
 
 <div class="container">
 
-<form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address"> 
+    <form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address">
 
 
-                <div class="input-field col s5">
-                    <textarea id="conditions" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.conditions"></textarea>
-                    <label class="active" for="city">Description Of Conditions</label>
-                </div>
-   
-
-
-                 <div class="input-field col s5">
-                    <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.testsPerformed"></textarea>
-                    <label class="active" for="city">Tests Performed</label>
-                </div>
-                  
-
-
-                 <div class="input-field col s5">
-                    <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.perscriptions"></textarea>
-                    <label class="active" for="city">Perscriptions</label>
-                </div>
-                 
-            
+        <div class="input-field col s5">
+            <textarea id="conditions" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.conditions"></textarea>
+            <label class="active" for="city">Description Of Conditions</label>
+        </div>
 
 
 
-            <div class="row">
-                <button class=" col s5 btn waves-effect waves-light left" ng-click="truevaultSubmitDoctorForm()" name="action" ng-class="buttonColor">Submit
-                </button>
-            </div>
+        <div class="input-field col s5">
+            <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.testsPerformed"></textarea>
+            <label class="active" for="city">Tests Performed</label>
+        </div>
 
-         
-              </form>
- </div>
-   
+
+
+        <div class="input-field col s5">
+            <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.perscriptions"></textarea>
+            <label class="active" for="city">Perscriptions</label>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <button class=" col s5 btn waves-effect waves-light left" ng-click="truevaultSubmitDoctorForm()" name="action" ng-class="buttonColor">Submit
+            </button>
+        </div>
+
+
+    </form>
+</div>

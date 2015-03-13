@@ -1,42 +1,69 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<div class="container">
+<div class="striped container">
 
-<div class="row col s12 ">
-        <div class="span4 offset4">
-          <div class="row">
-            
-            <div class="span4">
-              <h3>Shut up and take my money!</h3>
+    <div class="row col s12 ">
+        <div class="col-md-7">
+            <div class="row">
+
+                <div class="span4">
+                    <h3>Credit Card Information</h3>
+                </div>
+
+                <form stripe-form="handleStripe" name="myForm">
+
+                    <div class="span3">
+                        <label for="">Card number</label>
+                        <input type="text" class="input-block-level" ng-model="number" payments-validate="card" payments-format="card" payments-type-model="type" ng-class="myForm.number.$card.type" />
+                    </div>
+
+                    <div class="span1">
+                        <label for="">Expiry</label>
+                        <input type="text" class="input-block-level" ng-model="expiry" payments-validate="expiry" payments-format="expiry" />
+                    </div>
+
+                    <div class="span3">
+                        <label for="">Name on card </label>
+                        <input type="text" class="input-block-level">
+                    </div>
+
+                    <div class="span1">
+                        <label for="">CVC</label>
+                        <input type="text" class="input-block-level" ng-model="cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type" />
+                    </div>
+                      <h4>your Total charge is <a style="color:#3498db">{{chargeNow | currency}}</a></h4>
+                    <div class="span4">
+
+                        <center><button type="submit" class="btn btn-primary waves-effect btn-large">Submit</button></center>
+                    </div>
+                </form>
             </div>
-            
-            <form stripe-form="handleStripe" name="myForm">
-
-              <div class="span3">
-                <label for="">Card number</label>
-                <input type="text" class="input-block-level" ng-model="number" payments-validate="card" payments-format="card" payments-type-model="type" ng-class="myForm.number.$card.type"/>
-              </div>
-              
-              <div class="span1">
-                <label for="">Expiry</label>
-                <input type="text" class="input-block-level" ng-model="expiry" payments-validate="expiry" payments-format="expiry" />
-              </div>
-              
-              <div class="span3">
-                <label for="">Name on card </label>
-                <input type="text" class="input-block-level">
-              </div>
-              
-              <div class="span1">
-                <label for="">CVC</label>
-                <input type="text" class="input-block-level" ng-model="cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
-              </div>
-              
-              <div class="span4">
-                <button type="submit" class="btn btn-primary btn-large">Submit</button>
-              </div>
-            </form>
-
-          </div>
         </div>
-      </div>
-      </div>
+
+
+        <div class="orderInfor col-md-5">
+            <h3>Your order Information</h3>
+              <h4>your Total charge is <a style="color:#3498db">{{chargeNow | currency}}</a></h4>
+              <p>You will only have to put your credit card information in once. Next time you sign in we will have your credit card on file, So you can quickly and easly get the help you need.</p>
+
+                     <div class="col-md-12 col-sm-12">
+                            <div class="pricing ondemand hover-effect">
+
+                                    <h4 style="color: #3ab4df;">We Also have VIP Annual Plans:</h4>
+                                      <h5>Platinum Membership -- $2,999</h4>
+                                     <ul class="pricing-content list-unstyled" style="background-color:white;">
+                                    <li>Unlimited house calls for 12 months*</li>
+                                    <li>Premium customer service support</li>
+                                </ul>
+
+                                   <h5>Silver Membership -- $1,999</h5>
+                                    <ul>
+                                    <li>Covers 10 house calls for 12 months</li>
+                                    <li>Enhanced customer service support</li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+        </div>
+    </div>
+</div>
