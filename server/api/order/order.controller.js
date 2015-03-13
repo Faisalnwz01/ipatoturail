@@ -80,7 +80,25 @@ exports.texts = function(req, res) {
         if (err) {
             return handleError(err)
         };
-        if (order.doctor_id === undefined || order.doctor_id === null) {
+
+              if (order.doctor_id !== undefined || order.doctor_id !== null) {
+            client.sendMessage({
+                to: req.body.From, // Any number Twilio can deliver to
+                from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+                body: 'Sorry you didnt get the order, GoodBye' // body of the SMS message
+
+            }, function(err, responseData) { //this function is executed when a response is received from Twilio
+                if (!err) { // "err" is an error received during the request,
+                    console.log(responseData.from); // outputs "+14506667788"
+                    console.log(responseData.body); // outputs "word to your mother."
+                    console.log('hit success')
+                } else {
+                    console.log(err)
+                    console.log('hit error')
+                }
+            });
+        }
+        else if (order.doctor_id === undefined || order.doctor_id === null) {
             ///req.body.From === doctor that got the order
             // var docID = {doctor_id: req.body.From}
             // var query = Order.where({
@@ -109,7 +127,7 @@ exports.texts = function(req, res) {
 
                     to: req.body.From, // Any number Twilio can deliver to
                     from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
-                    body: 'Hey, you got the order. You have 40 minutes to get to this location. Signin to this link for more information https://babydoctor.herokuapp.com/doctorDash Goodluck!!' // body of the SMS message
+                    body: 'Hey, you got the order. You have 40 minutes to get to this location. Signin to this link for more information https://babydoctor.herokuapp.com/Login Goodluck!!' // body of the SMS message
 
                 }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
@@ -147,23 +165,8 @@ exports.texts = function(req, res) {
                 });
             }
 
-        } else if (order.doctor_id !== undefined || order.doctor_id !== null) {
-            client.sendMessage({
-                to: req.body.From, // Any number Twilio can deliver to
-                from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
-                body: 'Sorry you didnt get the order, GoodBye' // body of the SMS message
+        } 
 
-            }, function(err, responseData) { //this function is executed when a response is received from Twilio
-                if (!err) { // "err" is an error received during the request,
-                    console.log(responseData.from); // outputs "+14506667788"
-                    console.log(responseData.body); // outputs "word to your mother."
-                    console.log('hit success')
-                } else {
-                    console.log(err)
-                    console.log('hit error')
-                }
-            });
-        }
     });
 }
 
