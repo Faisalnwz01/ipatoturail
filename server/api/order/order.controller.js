@@ -15,7 +15,7 @@ exports.index = function(req, res) {
     });
 };
 
-//take out order recieved 
+//take out order recieved
 // var orderRecieved;
 
 //Send the intitial text message with order id
@@ -34,7 +34,7 @@ exports.twilio = function(req, res) {
     query.findOne(function(err, order) {
                 if (err) return handleError(err);
                 if (order) {
-                
+
                     order.code4Digit = code4Digit
                     order.save(function(err) {
                         if (err) {
@@ -46,11 +46,11 @@ exports.twilio = function(req, res) {
 
 
 
-   
+
 
     //Send an SMS text message
     var numbers = ['+17185308914', '+16094396656']
-    // var numbers = ['+17185308914']
+        // var numbers = ['+17185308914']
     for (var i = 0; i < numbers.length; i++) {
         client.sendMessage({
 
@@ -100,7 +100,7 @@ exports.texts = function(req, res) {
         code4Digit: req.body.Body.toLowerCase()
     });
     var response = req.body.Body.toLowerCase();
-   
+
     query.findOne(function(err, order) {
         if (err) {return handleError(err)};
         if(!order){
@@ -181,8 +181,7 @@ exports.texts = function(req, res) {
                     }
                 });
             }
-
-        } 
+        }
 
         else {
             console.log(order, 'order in else statementttttttttttt')
@@ -220,6 +219,33 @@ exports.show = function(req, res) {
 
 // Creates a new order in the DB.
 exports.create = function(req, res) {
+    Order.create(req.body, function(err, order) {
+        if (err) {
+            return handleError(res, err);
+        }
+        return res.json(201, order);
+    });
+};
+
+
+// Creates a new order in the DB.
+exports.getThisOrder = function(req, res) {
+    var query = Order.where({
+        doctor_id: req.body.number
+    });
+    var orders = []
+    query.find(function(err, order) {
+        if (err) return handleError(err);
+            console.log(order)
+        for (var i = 0; i < order.length; i++) {
+             if (order[i].status !== "Closed"){
+              orders.push(order[i])
+             }
+         };
+              return res.json(200, orders);
+    });
+
+
     Order.create(req.body, function(err, order) {
         if (err) {
             return handleError(res, err);
