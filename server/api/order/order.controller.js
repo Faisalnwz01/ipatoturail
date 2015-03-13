@@ -14,7 +14,8 @@ exports.index = function(req, res) {
         return res.json(200, orders);
     });
 };
-var code4Digit;
+// var code4Digit;
+//take out order recieved 
 var orderRecieved;
 
 //Send the intitial text message with order id
@@ -25,6 +26,9 @@ exports.twilio = function(req, res) {
     var address = req.body.address;
 
     code4Digit = req.body.document_id.slice(0, 4)
+
+    //Save 4 digit code to order schema in our database
+    //set var code$digit as local private variable
 
     //Send an SMS text message
     var numbers = ['+17185308914', '+16094396656']
@@ -72,6 +76,8 @@ exports.twilio = function(req, res) {
 // }
 
 exports.texts = function(req, res) {
+    //change query to look for order by 4 digit code
+    //take out orderReiveed in this function change to check by req.body.body.toLowercase()
     var query = Order.where({
         document_id: orderRecieved.body.document_id
     });
