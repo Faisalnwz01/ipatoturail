@@ -6,7 +6,7 @@ angular.module('babyDoctorApp')
       .state('doctorDash', {
         url: '/doctorDash',
         templateUrl: 'app/doctorDash/doctorDash.html',
-        controller: 'DoctorDashCtrl', 
-        authenticate: true
+        controller: 'DoctorDashCtrl' 
+        // authenticate: true
       });
   });

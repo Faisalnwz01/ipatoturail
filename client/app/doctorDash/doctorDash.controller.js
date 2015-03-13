@@ -3,6 +3,16 @@
 angular.module('babyDoctorApp')
     .controller('DoctorDashCtrl', function($scope, $http, Auth, $cookieStore) {
 
+        $scope.show = false;
+
+        $scope.showPastOrders = function() {
+            if (!$scope.show) {
+                $scope.show = true;
+            } else {
+                $scope.show = false;
+            }
+        }
+
         $scope.DoctorFormForChild = {
             conditions: "",
             testsPerformed: "",
@@ -39,7 +49,6 @@ angular.module('babyDoctorApp')
             });
         }
 
-
         // $http.get('api/orders').then(function(data) {
         //     console.log(data)
         //     for (var i = 0; i < data.data.length; i++) {
@@ -53,12 +62,18 @@ angular.module('babyDoctorApp')
         //     }
         // })
 
-        $http.post('api/orders/getThisOrder', {number: $scope.getCurrentUser.address.phone}).then(function (data) {
-          if (data) {
-           $scope.trueVaultDocId = data.data[0].document_id
-           $scope.truevaultGetDocs($scope.trueVaultDocId)
-          console.log(data)
-        }
+        $http.post('api/orders/getThisOrder', {
+            number: $scope.getCurrentUser.address.phone
+        }).then(function(data) {
+            if (data) {
+                $scope.pastOrders = []
+                $scope.trueVaultDocId = data.data[0].document_id
+                $scope.truevaultGetDocs($scope.trueVaultDocId)
+                console.log(data)
+            }
+            if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone && data.data[i].status === "Closed") {
+                $scope.pastOrders.push(data.data[i])
+            }
         })
 
 
@@ -97,7 +112,9 @@ angular.module('babyDoctorApp')
                 for (var i = 0; i < data.data.length; i++) {
                     if (data.data[i].document_id === $scope.trueVaultDocId) {
                         var update = {
-                            status: "Closed"
+                            status: "Closed",
+                            dateClosed: new Date()
+
                         }
                         $http.put('api/orders/' + data.data[i]._id, update).then(function(data) {
                             console.log(data)

@@ -73,7 +73,41 @@
             <button class=" col s5 btn waves-effect waves-light left" ng-click="truevaultSubmitDoctorForm()" name="action" ng-class="buttonColor">Submit
             </button>
         </div>
-
-
     </form>
+
+
 </div>
+<br>
+<br>
+<br>
+
+<center>
+            <md-button class="md-primary md-raised" ng-click="showPastOrders()"><span ng-show="(!show)">View</span><span ng-show="(show)">Hide</span> Past Orders</md-button>
+    </center>
+    <br>
+    <br>
+    <div class="col-md-5" ng-repeat = 'order in pastOrders' ng-show= "(show)">
+            <ul class='list-group'>
+                <li class="list-group-item" style="font-size:20px; color: #3498DB; font-style: italic; font-weight: bold;">Name - {{order.ParentName}}</li>
+                <li class="list-group-item">Address - {{order.address.street1}}, {{order.address.street2}}
+                    <br> {{order.address.city}}, {{order.address.state}}
+                    <br> {{order.address.zip}} </li>
+                <li class="list-group-item">Phone - {{order.phone}}</li>
+                <li class="list-group-item">Email Address- {{order.email}}</li>
+                <li class="list-group-item">Account ID - {{order.document_id}}</li>
+                <li class="list-group-item">Status - {{order.status}} on {{order.dateClosed}}</li>
+
+            </ul>
+
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
