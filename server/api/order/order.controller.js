@@ -100,10 +100,29 @@ exports.texts = function(req, res) {
         code4Digit: req.body.Body.toLowerCase()
     });
     var response = req.body.Body.toLowerCase();
+   
     query.findOne(function(err, order) {
         if (err) {return handleError(err)};
-        console.log(order, 'orderrrrrrrrrrrrrrr')
-        if (order.doctor_id === undefined || order.doctor_id === null) {
+        if(!order){
+                   client.sendMessage({
+
+                    to: req.body.From, // Any number Twilio can deliver to
+                    from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
+                    body: 'Please enter the excat four digit code.' // body of the SMS message
+
+                }, function(err, responseData) { //this function is executed when a response is received from Twilio
+
+                    if (!err) {
+                        console.log('hit success')
+
+                    } else {
+                        console.log(err)
+                        console.log('hit error')
+                    }
+                });
+
+        }
+        else if (order.doctor_id === undefined || order.doctor_id === null) {
             query.findOne(function(err, order1) {
                 if (err) return handleError(err);
                 if (order1) {
@@ -136,14 +155,7 @@ exports.texts = function(req, res) {
 
                 }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
-                    if (!err) { // "err" is an error received during the request, if any
-
-                        // "responseData" is a JavaScript object containing data received from Twilio.
-                        // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
-                        // http://www.twilio.com/docs/api/rest/sending-sms#example-1
-
-                        console.log(responseData.from); // outputs "+14506667788"
-                        console.log(responseData.body); // outputs "word to your mother."
+                    if (!err) {
                         console.log('hit success')
 
                     } else {
