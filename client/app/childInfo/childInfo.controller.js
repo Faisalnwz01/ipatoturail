@@ -16,7 +16,8 @@ $scope.token = $cookieStore.get('token')
     dob: null,
     ssn: "",
     conditions: "",
-    symptoms: ""
+    symptoms: "", 
+    allergies:""
   }
 
    $scope.postDocumentID = function(){

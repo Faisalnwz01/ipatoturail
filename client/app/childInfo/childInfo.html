@@ -1,5 +1,10 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<div class="container">
+<br>
+<br>
+<br>
+<br>
+<div class="container" style="padding-right: 76px; padding-left:76px">
+  <h2>Step 2: Child Info</h2>
 <form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address">
             <div class="row">
                 <div class="input-field col s12">
@@ -21,25 +26,26 @@
             </div>
             <div class="row">
                 <div class="input-field col s5">
+                    <textarea id="allergies" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.allergies"></textarea>
+                    <label class="active" for="city">Any Known Allergies</label>
+                </div>
+              <div class="input-field col s5">
                     <textarea id="conditions" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.conditions"></textarea>
                     <label class="active" for="city">Existing Diseases or Medical Conditions if any</label>
                 </div>
-                 <div class="input-field col s5">
+            </div>
+              <div class="input-field col s5">
                     <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.sympotoms"></textarea>
                     <label class="active" for="city">Breif Description of The Child's Symptoms</label>
                 </div>
-            </div>
 
 
 
-            <div class="row">
+           
 
-                <!-- <div class="input-field col s6"> -->
-                <button class="col s5 btn waves-effect waves-light red " type="button" name="action" ng-class="buttonColor" ng-click="resetForm()">Clear Form
-                </button>
                 <!-- </div> -->
                 <!-- <div class="input-field col s6"> -->
-                <button class=" col s5 btn waves-effect waves-light right" ng-click="submitChildInfo()" name="action" ng-class="buttonColor">Confirm
+                <button class=" col s5 btn waves-effect waves-light left" ng-click="submitChildInfo()" name="action" ng-class="buttonColor">Confirm
                 </button>
               </form>
 
@@ -56,4 +62,4 @@
                 <!-- </div> -->
 
             </div>
-            </div>
+            
