@@ -61,7 +61,8 @@ angular.module('babyDoctorApp')
                     $scope.truevaultGetDocs($scope.trueVaultDocId)
                     console.log($scope.trueVaultDocId)
                 }
-                else{
+                else if(data.data[i].doctor_id === $scope.getCurrentUser.address.phone && data.data[i].status ==="Closed")
+                {
                     $scope.pastOrders.push(data.data[i])
                 }
             }
