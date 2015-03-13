@@ -11,7 +11,8 @@ var OrderSchema = new Schema({
   address: {},
   status: String,
   doctor_id: String,
-  dateClosed: Date
+  dateClosed: Date, 
+  code4Digit: String
 });
 
 module.exports = mongoose.model('Order', OrderSchema);
