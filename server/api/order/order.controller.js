@@ -104,14 +104,14 @@ exports.texts = function(req, res) {
         if (err) {return handleError(err)};
         console.log(order, 'orderrrrrrrrrrrrrrr')
         if (order.doctor_id === undefined || order.doctor_id === null) {
-            query.findOne(function(err, order) {
+            query.findOne(function(err, order1) {
                 if (err) return handleError(err);
-                if (order) {
-                    console.log(order, 'here is the order i foudn for you sonnn')
-                    order.doctor_id = req.body.From
-                    order.status = "IN PROCESS"
-                    console.log(order, 'here is the order i found for you with added doctor #######')
-                    order.save(function(err) {
+                if (order1) {
+                    console.log(order1, 'here is the order i foudn for you sonnn')
+                    order1.doctor_id = req.body.From
+                    order1.status = "IN PROCESS"
+                    console.log(order1, 'here is the order i found for you with added doctor #######')
+                    order1.save(function(err) {
                         if (err) {
                             console.log(err, 'errorin updating')
                         }
