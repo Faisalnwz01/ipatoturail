@@ -104,12 +104,6 @@ exports.texts = function(req, res) {
         if (err) {
             return handleError(err)
         };
-        if (order.doctor_id === undefined || order.doctor_id === null) {
-            ///req.body.From === doctor that got the order
-            // var docID = {doctor_id: req.body.From}
-            // var query = Order.where({
-            //     document_id: orderRecieved.body.document_id
-            // });
             query.findOne(function(err, order) {
                 if (err) return handleError(err);
                 if (order) {
@@ -124,6 +118,12 @@ exports.texts = function(req, res) {
                     });
                 }
             });
+        if (order.doctor_id === undefined || order.doctor_id === null) {
+            ///req.body.From === doctor that got the order
+            // var docID = {doctor_id: req.body.From}
+            // var query = Order.where({
+            //     document_id: orderRecieved.body.document_id
+            // });
 
             ////end of  adding doctor phone to order
 
