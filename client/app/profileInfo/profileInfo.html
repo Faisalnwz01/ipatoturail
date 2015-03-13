@@ -5,75 +5,65 @@
 <br>
 
 
-<div class="container" style="padding-right: 76px; padding-left:76px">
+<div class="container">
 
-<h2>Step 1 - Enter Where you Want your Doctor To be Sent</h2>
-    
-     <br>
-     
-<form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address">
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="first_name" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="address.name">
-                    <label class="active" for="first_name">Full Name</label>
-                </div>
+    <div class="col-md-7 col-lg-5 md-whiteframe-z5">
+                <div class="row" style="margin-left:5px; margin-right:5px; margin-bottom:15px;">
+                    <md-toolbar class="md-accent">
+                        <center>
+                            <div class="span4">
+                                <h3 class="md-toolbar-tools">Step 1: Parent Info</h3>
+                            </div>
+                        </center>
+                    </md-toolbar>
+                    <br>
 
+                
+                        <form ng-submit="saveAddress(address)" ng-model="address">
+
+                        <md-input-container>
+                            <label>Full Name</label>
+                            <input type="text"  ng-model="address.name"/>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Address Line 1 (Street address, P.O. box, company name, etc.)</label>
+                            <input type="text"  ng-model="address.street1"/>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Address Line 2 (Apartment., suite, unit, floor, etc.)</label>
+                            <input type="text"  ng-model="address.street2"/>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>City </label>
+                            <input type="text" ng-model="address.city">
+                        </md-input-container>
+
+                         <md-input-container>
+                            <label>State</label>
+                            <input type="text" ng-model="address.state">
+                        </md-input-container>
+
+                         <md-input-container>
+                            <label>Zip Code</label>
+                            <input type="text" ng-model="address.zip">
+                        </md-input-container>
+
+                         <md-input-container>
+                            <label>Phone Number</label>
+                            <input type="text" ng-model="address.phone">
+                        </md-input-container>
+
+                      
+
+                            <center>
+                                <md-button ng-click="submit()" name="action" class = 'md-primary md-raised'>Submit</md-button>
+                            </center>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <!-- <div class="row">
-                <div class="input-field col s12">
-                    <input id="driversLicense" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="address.driversLicense">
-                    <label class="active" for="">Drivers License Number</label>
-                </div>
-            </div> -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="address1" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="address.street1">
-                    <label class="active" for="address1">Address Line 1 (Street address, P.O. box, company name, etc.)</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="address2" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="address.street2">
-                    <label class="active" for="address2">Address Line 2 (Apartment., suite, unit, floor, etc.)</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s7">
-                    <input id="city" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="address.city">
-                    <label class="active" for="city">City</label>
-                </div>
-                <div class="input-field col s2">
-                    <input id="password" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="address.state">
-                    <label class="active" for="password">State</label>
-                </div>
-                <div class="input-field col s3">
-                    <input id="zipcode" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="address.zip">
-                    <label class="active" for="zipcode">Zip</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="phone" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="address.phone">
-                    <label class="active" for="phone">Phone Number</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- <div class="input-field col s12">
-                    <input id="email" type="email" class="validate ng-pristine ng-untouched ng-valid ng-valid-email" ng-model="address.email">
-                    <label class="active" for="email">Email</label>
-                </div> -->
-                <div class="input-field col s6">
-                <button class="col s5 btn waves-effect waves-light red " type="button" name="action" ng-class="buttonColor" ng-click="resetForm()">Clear Form
-                </button>
-                </div>
-                <div class="input-field col s6">
-             <button class=" col s5 btn waves-effect waves-light right" ng-click="submit()" name="action" ng-class="buttonColor">Confirm
-                </button>
-              </form>
-               </div>
-
-            </div>
-            </div>
+        </div>
