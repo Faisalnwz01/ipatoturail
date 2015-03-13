@@ -6,8 +6,7 @@ angular.module('babyDoctorApp', [
   'ngSanitize',
   'btford.socket-io',
   'ui.router',
-  'ui.bootstrap', 
-  'catalyze',
+  'ui.bootstrap',
   'angularPayments'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
