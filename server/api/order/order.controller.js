@@ -89,6 +89,7 @@ exports.texts = function(req, res) {
             if (order) {
                 console.log(order, 'here is the order i foudn for you sonnn')
                 order.doctor_id = req.body.From
+                order.status = "IN PROCESS"
                 console.log(order, 'here is the order i found for you with added doctor #######')
                 order.save(function(err) {
                     if (err) {
