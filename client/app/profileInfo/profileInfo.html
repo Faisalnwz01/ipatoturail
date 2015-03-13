@@ -1,11 +1,23 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<div class="container">
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="container" style="padding-right: 76px; padding-left:76px">
+
+<h2>Step 1 - Enter Where you Want your Doctor To be Sent</h2>
+    
+     <br>
+     
 <form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address">
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     <input id="first_name" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="address.name">
                     <label class="active" for="first_name">Full Name</label>
                 </div>
+
             </div>
 
             <!-- <div class="row">
