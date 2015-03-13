@@ -172,7 +172,8 @@ exports.texts = function(req, res) {
 
         } 
 
-        else if (order.doctor_id) {
+        else {
+            console.log(order, 'order in else statementttttttttttt')
             client.sendMessage({
                 to: req.body.From, // Any number Twilio can deliver to
                 from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
