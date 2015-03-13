@@ -1,24 +1,26 @@
 'use strict';
 
 angular.module('babyDoctorApp')
-    .controller('StripeCtrl', function($scope, $http) {
+    .controller('StripeCtrl', function($scope, $http, $stateParams) {
         $scope.message = 'Hello';
+        console.log($stateParams.id, 'state paramssss')
+        console.log($stateParams)
         Stripe.setPublishableKey('pk_test_CeLioPTKCLddQsFlJIM93b4V')
 
         $scope.paymentNow = function() {
             var time = new Date()
             time = time.getHours()
             if (time >= 17 && time < 20) {
-                $scope.chargeNow =  250;
+                $scope.chargeNow = 250;
             } else if (time >= 20 && time < 24) {
-                $scope.chargeNow =  350;
+                $scope.chargeNow = 350;
             } else if (time >= 24 && time < 2) {
-                $scope.chargeNow =  450;
+                $scope.chargeNow = 450;
             } else {
-                $scope.chargeNow = "sorry we are not open now"
+                $scope.chargeNow = 0;
             }
         };
-         $scope.paymentNow()
+        $scope.paymentNow()
 
 
 
@@ -38,13 +40,21 @@ angular.module('babyDoctorApp')
                 time = time.getHours()
 
                 response.time = time
-                console.log(time, "timeeeeeeeeeeeeeeeeee")
+                // console.log(time, "timeeeeeeeeeeeeeeeeee")
 
-                console.log(response.time, "response.timeeeeeeeeeeeeeeeee")
+                // console.log(response.time, "response.timeeeeeeeeeeeeeeeee")
 
                 $http.post('api/users/stripe', response).then(function(data) {
-                    console.log(data)
+                    // console.log(data)
                 })
+                $http.get('api/orders/' + $stateParams.id).then(function(orderToTwillio) {
+                    // console.log(orderToTwillio.data)
+                    $http.post('api/orders/twilio/', orderToTwillio.data).then(function(text) {
+                        // console.log(text, 'texttttttttttttttttt')
+                    })
+                });
+
             }
+
         }
     });
