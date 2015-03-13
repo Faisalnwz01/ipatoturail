@@ -106,7 +106,7 @@ exports.texts = function(req, res) {
 
                 to: req.body.From, // Any number Twilio can deliver to
                 from: '+16096143170', // A number you bought from Twilio and can use for outbound communication
-                body: 'Hey, you got the order. You have 40 minutes to get to this location. Goodluck!!' // body of the SMS message
+                body: 'Hey, you got the order. You have 40 minutes to get to this location. Signin to this link for more information https://babydoctor.herokuapp.com/doctorDash Goodluck!!' // body of the SMS message
 
             }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
