@@ -5,10 +5,11 @@ angular.module('babyDoctorApp')
 
         $scope.show = false;
 
-        $scope.showPastOrders = function() {
-            if (!$scope.show) {
+        $scope.showPastOrders = function(){
+            if(!$scope.show){
                 $scope.show = true;
-            } else {
+            }
+            else{
                 $scope.show = false;
             }
         }
@@ -49,30 +50,44 @@ angular.module('babyDoctorApp')
             });
         }
 
-        // $http.get('api/orders').then(function(data) {
-        //     console.log(data)
-        //     for (var i = 0; i < data.data.length; i++) {
-        //         if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone) {
-        //             console.log('data.data', data.data[i])
-        //             $scope.trueVaultDocId = data.data[i].document_id
-        //             console.log($scope.trueVaultDocId, 'document ID')
-        //             $scope.truevaultGetDocs($scope.trueVaultDocId)
-        //             console.log($scope.trueVaultDocId)
-        //         }
-        //     }
-        // })
 
-        $http.post('api/orders/getThisOrder', {
-            number: $scope.getCurrentUser.address.phone
-        }).then(function(data) {
-            if (data) {
-                $scope.pastOrders = []
-                $scope.trueVaultDocId = data.data[0].document_id
-                $scope.truevaultGetDocs($scope.trueVaultDocId)
-                console.log(data)
-            }
-            if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone && data.data[i].status === "Closed") {
-                $scope.pastOrders.push(data.data[i])
+// <<<<<<< HEAD
+//         // $http.get('api/orders').then(function(data) {
+//         //     console.log(data)
+//         //     for (var i = 0; i < data.data.length; i++) {
+//         //         if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone) {
+//         //             console.log('data.data', data.data[i])
+//         //             $scope.trueVaultDocId = data.data[i].document_id
+//         //             console.log($scope.trueVaultDocId, 'document ID')
+//         //             $scope.truevaultGetDocs($scope.trueVaultDocId)
+//         //             console.log($scope.trueVaultDocId)
+//         //         }
+//         //     }
+//         // })
+
+//         $http.post('api/orders/getThisOrder', {number: $scope.getCurrentUser.address.phone}).then(function (data) {
+//           if (data) {
+//              $scope.pastOrders = []
+//            $scope.trueVaultDocId = data.data[0].document_id
+//            $scope.truevaultGetDocs($scope.trueVaultDocId)
+//           console.log(data)
+//         }
+// =======
+        $http.get('api/orders').then(function(data) {
+
+            console.log(data)
+            for (var i = 0; i < data.data.length; i++) {
+                if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone && data.data[i].status !=="Closed" ) {
+                    console.log('data.data', data.data[i])
+                    $scope.trueVaultDocId = data.data[i].document_id
+                    console.log($scope.trueVaultDocId, 'document ID')
+                    $scope.truevaultGetDocs($scope.trueVaultDocId)
+                    console.log($scope.trueVaultDocId)
+                }
+                else if(data.data[i].doctor_id === $scope.getCurrentUser.address.phone && data.data[i].status ==="Closed")
+                {
+                    $scope.pastOrders.push(data.data[i])
+                }
             }
         })
 
