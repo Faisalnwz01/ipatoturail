@@ -3,6 +3,17 @@
 angular.module('babyDoctorApp')
     .controller('DoctorDashCtrl', function($scope, $http, Auth, $cookieStore) {
 
+        $scope.show = false;
+
+        $scope.showPastOrders = function(){
+            if(!$scope.show){
+                $scope.show = true; 
+            }
+            else{
+                $scope.show = false; 
+            }
+        }
+
         $scope.DoctorFormForChild = {
             conditions: "",
             testsPerformed: "",
@@ -40,14 +51,18 @@ angular.module('babyDoctorApp')
 
 
         $http.get('api/orders').then(function(data) {
+            $scope.pastOrders = [] 
             console.log(data)
             for (var i = 0; i < data.data.length; i++) {
-                if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone) {
+                if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone && data.data[i].status !=="Closed" ) {
                     console.log('data.data', data.data[i])
                     $scope.trueVaultDocId = data.data[i].document_id
                     console.log($scope.trueVaultDocId, 'document ID')
                     $scope.truevaultGetDocs($scope.trueVaultDocId)
                     console.log($scope.trueVaultDocId)
+                }
+                else{
+                    $scope.pastOrders.push(data.data[i])
                 }
             }
         })
@@ -88,7 +103,9 @@ angular.module('babyDoctorApp')
                 for (var i = 0; i < data.data.length; i++) {
                     if (data.data[i].document_id === $scope.trueVaultDocId) {
                         var update = {
-                            status: "Closed"
+                            status: "Closed", 
+                            dateClosed: new Date()
+
                         }
                         $http.put('api/orders/' + data.data[i]._id, update).then(function(data) {
                             console.log(data)

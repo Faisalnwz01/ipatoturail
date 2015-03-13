@@ -10,7 +10,8 @@ var OrderSchema = new Schema({
   email: String,
   address: {},
   status: String,
-  doctor_id: String
+  doctor_id: String,
+  dateClosed: Date
 });
 
 module.exports = mongoose.model('Order', OrderSchema);

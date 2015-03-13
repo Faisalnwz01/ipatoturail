@@ -14,7 +14,7 @@ exports.index = function(req, res) {
         return res.json(200, orders);
     });
 };
-// var code4Digit;
+var code4Digit;
 //take out order recieved 
 var orderRecieved;
 
