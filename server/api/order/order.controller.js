@@ -101,9 +101,9 @@ exports.texts = function(req, res) {
     });
     var response = req.body.Body.toLowerCase();
     query.findOne(function(err, order) {
-        if (err) {
-            return handleError(err)
-        };
+        if (err) {return handleError(err)};
+        console.log(order, 'orderrrrrrrrrrrrrrr')
+        if (order.doctor_id === undefined || order.doctor_id === null) {
             query.findOne(function(err, order) {
                 if (err) return handleError(err);
                 if (order) {
@@ -118,7 +118,6 @@ exports.texts = function(req, res) {
                     });
                 }
             });
-        if (order.doctor_id === undefined || order.doctor_id === null) {
             ///req.body.From === doctor that got the order
             // var docID = {doctor_id: req.body.From}
             // var query = Order.where({
