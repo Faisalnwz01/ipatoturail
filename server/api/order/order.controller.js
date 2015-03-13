@@ -127,7 +127,7 @@ exports.texts = function(req, res) {
 
             ////end of  adding doctor phone to order
 
-            if (response === code4Digit) {
+            if (response === order.code4Digit) {
                 console.log('hit yes')
                 client.sendMessage({
 
