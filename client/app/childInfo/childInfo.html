@@ -3,7 +3,8 @@
 <br>
 <br>
 <br>
-<div class="container" style="padding-right: 76px; padding-left:76px">
+<progress max="100" value="80"></progress>
+<!-- <div class="container" style="padding-right: 76px; padding-left:76px">
   <h2>Step 2: Child Info</h2>
 <form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address">
             <div class="row">
@@ -26,40 +27,110 @@
             </div>
             <div class="row">
                 <div class="input-field col s5">
-                    <textarea id="allergies" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.allergies"></textarea>
+                    <textarea id="allergies" type="text" class="ng-pristine ng-untouched ng-valid" ng-model="child.allergies"></textarea>
                     <label class="active" for="city">Any Known Allergies</label>
                 </div>
               <div class="input-field col s5">
-                    <textarea id="conditions" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.conditions"></textarea>
+                    <textarea id="conditions" type="text" class="ng-pristine ng-untouched ng-valid" ng-model="child.conditions"></textarea>
                     <label class="active" for="city">Existing Diseases or Medical Conditions if any</label>
                 </div>
             </div>
               <div class="input-field col s5">
-                    <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="child.sympotoms"></textarea>
+                    <textarea id="symptoms" type="text" class="ng-pristine ng-untouched ng-valid" ng-model="child.sympotoms"></textarea>
                     <label class="active" for="city">Breif Description of The Child's Symptoms</label>
+                </div>
+                <button class=" col s5 btn waves-effect waves-light left" ng-click="submitChildInfo()" name="action" ng-class="buttonColor">Confirm
+                </button>
+              </form>
+            </div> -->
+
+<div class="row col s12" layout-align="space-around center">
+   <div class="orderInfor col-md-5 " hide-sm hide-sm>
+                    <md-toolbar class="md-accent">
+                        <div class="span4">
+                            <center>
+                                <h3 class="md-toolbar-tools">your Child's Information</h3>
+                            </center>
+                        </div>
+                    </md-toolbar>
+
+                    <md-content class="md-padding">
+                    <p>Please input your child's medical information here. Please include existing Diseases or Medical Conditions and any symptoms that the child is displaying. Also include any allergies that you kid has to any medicine or anything else.
+</p>
+                    </md-content>
+                    <div class="col-md-12 col-sm-12">
+                      <md-content class="md-padding">
+                            <h4 style="color: #3ab4df;">Here are some service we provide:</h4>
+                            <h5>Checkup</h4>
+                                     <ul class="pricing-content list-unstyled" style="background-color:white;">
+                                    <li>Prescriptions</li>
+                                    <li>another service here </li>
+                                </ul>
+
+                                   <h5>another service here</h5>
+                            <ul>
+                                <li>another service here</li>
+                                <li>another service here</li>
+
+                            </ul>
+                          </md-content>
+
+                    </div>
                 </div>
 
 
 
-           
+    <div >
+        <div class="col-md-7 col-lg-5 md-whiteframe-z5" layout-align="end">
+            <div class="row" style="margin-left:5px; margin-right:5px; margin-bottom:15px;">
+                <md-toolbar class="md-accent">
+                    <center>
+                        <div class="span4">
+                            <h3 class="md-toolbar-tools">Step 2: Child Info</h3>
+                        </div>
+                    </center>
+                </md-toolbar>
+                <br>
+                <form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address">
+                    <md-input-container>
+                        <label>Child's Full Name</label>
+                        <input id="name" type="text" ng-model="child.name" />
+                    </md-input-container>
 
-                <!-- </div> -->
-                <!-- <div class="input-field col s6"> -->
-                <button class=" col s5 btn waves-effect waves-light left" ng-click="submitChildInfo()" name="action" ng-class="buttonColor">Confirm
-                </button>
-              </form>
+                    <md-input-container>
+                        <label>Birthday</label>
+                        <input type="text" id='dob' ng-model="child.dob" />
+                    </md-input-container>
 
-<!--   <form action="" method="POST">
-        <script
-          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-          data-amount="2000"
-          data-name="Demo Site"
-          data-description="2 widgets ($20.00)"
-          data-image="/128x128.png">
-        </script>
-</form> -->
-                <!-- </div> -->
+                    <md-input-container>
+                        <label>Social Security Number </label>
+                        <input id="ssn" type="text" class="validate ng-pristine ng-untouched ng-valid" ng-model="child.ssn" />
+                    </md-input-container>
 
+                    <md-input-container>
+                        <label>Allergies </label>
+                        <input id="allergies" type="text" class="ng-pristine ng-untouched ng-valid" ng-model="child.allergies">
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Existing Diseases or Medical Conditions if any</label>
+                        <input id="conditions" type="text" class="ng-pristine ng-untouched ng-valid" ng-model="child.conditions">
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Breif Description of The Child's Symptoms</label>
+                        <input id="symptoms" type="text" class="ng-pristine ng-untouched ng-valid" ng-model="child.sympotoms">
+                    </md-input-container>
+
+                    <!--    <md-input-container>
+                    <label>Phone Number</label>
+                    <input type="text" ng-model="address.phone">
+                </md-input-container> -->
+                    <center>
+                        <md-button ng-click="submitChildInfo()" name="action" class='md-primary md-raised'>Submit</md-button>
+                    </center>
+                </form>
             </div>
-            
+        </div>
+    </div>
+</div>
