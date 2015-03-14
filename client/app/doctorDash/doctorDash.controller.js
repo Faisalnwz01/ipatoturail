@@ -7,10 +7,10 @@ angular.module('babyDoctorApp')
 
         $scope.showPastOrders = function(){
             if(!$scope.show){
-                $scope.show = true; 
+                $scope.show = true;
             }
             else{
-                $scope.show = false; 
+                $scope.show = false;
             }
         }
 
@@ -20,6 +20,7 @@ angular.module('babyDoctorApp')
             perscriptions: ""
         }
         $scope.getCurrentUser = Auth.getCurrentUser()
+
         $scope.truevaultGetDocs = function(docId) {
             $cookieStore.remove('token')
             $cookieStore.remove('token')
@@ -50,8 +51,30 @@ angular.module('babyDoctorApp')
         }
 
 
+// <<<<<<< HEAD
+//         // $http.get('api/orders').then(function(data) {
+//         //     console.log(data)
+//         //     for (var i = 0; i < data.data.length; i++) {
+//         //         if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone) {
+//         //             console.log('data.data', data.data[i])
+//         //             $scope.trueVaultDocId = data.data[i].document_id
+//         //             console.log($scope.trueVaultDocId, 'document ID')
+//         //             $scope.truevaultGetDocs($scope.trueVaultDocId)
+//         //             console.log($scope.trueVaultDocId)
+//         //         }
+//         //     }
+//         // })
+
+//         $http.post('api/orders/getThisOrder', {number: $scope.getCurrentUser.address.phone}).then(function (data) {
+//           if (data) {
+//              $scope.pastOrders = []
+//            $scope.trueVaultDocId = data.data[0].document_id
+//            $scope.truevaultGetDocs($scope.trueVaultDocId)
+//           console.log(data)
+//         }
+// =======
         $http.get('api/orders').then(function(data) {
-            $scope.pastOrders = [] 
+
             console.log(data)
             for (var i = 0; i < data.data.length; i++) {
                 if (data.data[i].doctor_id === $scope.getCurrentUser.address.phone && data.data[i].status !=="Closed" ) {
@@ -104,7 +127,7 @@ angular.module('babyDoctorApp')
                 for (var i = 0; i < data.data.length; i++) {
                     if (data.data[i].document_id === $scope.trueVaultDocId) {
                         var update = {
-                            status: "Closed", 
+                            status: "Closed",
                             dateClosed: new Date()
 
                         }
