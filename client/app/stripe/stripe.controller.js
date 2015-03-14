@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('babyDoctorApp')
-    .controller('StripeCtrl', function($scope, $http, $stateParams) {
+    .controller('StripeCtrl', function($scope, $state, $http, $stateParams, $mdDialog) {
         $scope.message = 'Hello';
         console.log($stateParams.id, 'state paramssss')
-        console.log($stateParams)
+            // console.log($stateParams)
         Stripe.setPublishableKey('pk_test_CeLioPTKCLddQsFlJIM93b4V')
 
         $scope.paymentNow = function() {
@@ -27,7 +27,15 @@ angular.module('babyDoctorApp')
         $scope.handleStripe = function(status, response) {
             if (response.error) {
                 console.log(response, 'errorrroeoer')
-                    // there was an error. Fix it.
+                $mdDialog.show(
+                    $mdDialog.alert()
+                    .title('Something went wrong :( ')
+                    .content(response.error.message + " please Try again.")
+                    .ariaLabel('Password notification')
+                    .ok('Got it!')
+                    .targetEvent(response)
+                );
+                // there was an error. Fix it.
             } else {
                 console.log(response, 'not error')
 
@@ -40,7 +48,7 @@ angular.module('babyDoctorApp')
                 time = time.getHours()
 
                 response.time = time
-                // console.log(time, "timeeeeeeeeeeeeeeeeee")
+                    // console.log(time, "timeeeeeeeeeeeeeeeeee")
 
                 // console.log(response.time, "response.timeeeeeeeeeeeeeeeee")
 
@@ -53,7 +61,7 @@ angular.module('babyDoctorApp')
                         // console.log(text, 'texttttttttttttttttt')
                     })
                 });
-
+                $state.go('main')
             }
 
         }
