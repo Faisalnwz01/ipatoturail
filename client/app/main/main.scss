@@ -485,10 +485,28 @@ input.gn-search:focus {
     position:relative;
 }
 
-#intro{ 
-    background-image: url("assets/images/img-bg.jpg");
-    background-size: cover;
+
+    
+#intro {
+ background: no-repeat center right fixed url("http://joywill.com/wp-content/uploads/2013/08/Doctor-with-a-baby.jpg");
+  -webkit-background-size: 100%; 
+    -moz-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%; 
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/background.jpg', sizingMethod='scale')";
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/background.jpg', sizingMethod='scale');
+  
+  margin-bottom: 0px;
+  padding: 0px;
+
 }
+
 
 .intro .slogan {
     padding:250px 0 60px;
