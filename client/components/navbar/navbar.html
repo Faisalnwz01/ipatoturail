@@ -1,4 +1,5 @@
-<div class="navbar navbar-fixed-top navbar-default" style="background-color: #3498db; color: white"ng-controller="NavbarCtrl">
+<div class="navbar navbar-fixed-top navbar-default" style="background: rgba(255, 255, 255, 0);"ng-controller="NavbarCtrl">
+      <strong><a href="/"><img src="assets/images/logo.png" alt="" class="img-responsive" style="margin-top: 5px; height = 85px; float:left;"/></a></strong>
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
@@ -7,7 +8,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <strong><a href="/"><img src="assets/images/logo.png" alt="" class="img-responsive" style="margin-top: 5px;"/></a></strong>
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
@@ -18,6 +18,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+      <a href="#contact"> <md-button class="md-accent md-raised md-hue-1" style="height:46px; width:216px; border-radius: 50px;"><span style="font-size: 21px; color: white; ">Request A Doctor</span></md-button></a>
         <li><a href="/About">Our Doctors</a></li>
         <li><a href="/services">Our Services</a></li>
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
