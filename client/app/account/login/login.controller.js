@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('babyDoctorApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window, $http, catalyze) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $window, $http) {
 $scope.isLoggedIn = Auth.isLoggedIn;
+
+
 
 // var apiKey = "f9fa5cdf-2de8-4ba3-9a0d-0bd12a8b4518"
 // var vaultId = ""

@@ -1,11 +1,54 @@
-<div class="modal-header">
-  <button ng-if="modal.dismissable" type="button" ng-click="$dismiss()" class="close">&times;</button>
-  <h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
-</div>
-<div class="modal-body">
-  <p ng-if="modal.text" ng-bind="modal.text"></p>
-  <div ng-if="modal.html" ng-bind-html="modal.html"></div>
-</div>
-<div class="modal-footer">
-  <button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="button.click($event)" ng-bind="button.text" class="btn"></button>
+<div class = "contrainer">
+<center>
+<h2>Sign Up For Updates</h2>
+
+
+<form class="form" name="form" ng-submit="register(form)" novalidate>
+
+        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                            'has-error': form.name.$invalid && submitted }">
+          <label>Name</label>
+
+          <input type="text" name="name" class="form-control" ng-model="users.name"
+                 required/>
+          <p class="help-block" ng-show="form.name.$error.required && submitted">
+            A name is required
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
+                                            'has-error': form.email.$invalid && submitted }">
+          <label>Email</label>
+
+          <input type="email" name="email" class="form-control" ng-model="users.email"
+                 required
+                 mongoose-error/>
+          <p class="help-block" ng-show="form.email.$error.email && submitted">
+            Doesn't look like a valid email.
+          </p>
+          <p class="help-block" ng-show="form.email.$error.required && submitted">
+            What's your email address?
+          </p>
+          <p class="help-block" ng-show="form.email.$error.mongoose">
+            {{ errors.email }}
+          </p>
+        </div>
+
+ 
+
+        <div>
+         <md-button class="md-accent md-raised md-hue-1" style="height:80px; width:400px; border-radius: 50px;"><span style="font-size: 30px; color: white;" ng-click="cancel()">Request A Doctor</span></md-button>
+        </div>
+
+        <hr>
+      <!--   <div>
+          <a class="btn btn-facebook" href="" ng-click="loginOauth('facebook')">
+            <i class="fa fa-facebook"></i> Connect with Facebook
+          </a>
+          <a class="btn btn-google-plus" href="" ng-click="loginOauth('google')">
+            <i class="fa fa-google-plus"></i> Connect with Google+
+          </a>
+        </div> -->
+      </form>
+</center>
 </div>
