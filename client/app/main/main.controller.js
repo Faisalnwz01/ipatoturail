@@ -1,7 +1,15 @@
 'use strict';
 
 angular.module('babyDoctorApp')
-    .controller('MainCtrl', function($scope, $http, socket, $state) {
+    .controller('MainCtrl', function($scope, $http, socket, $state, Modal, $modal) {
+
+
+
+$scope.modal = function(){
+    Modal.openModal()
+}
+
+
 
 // $http.get('/api/users/doctors/get').then(function(data){
 //     console.log(data, 'asfffffffffffffffff')

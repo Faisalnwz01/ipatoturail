@@ -8,8 +8,25 @@ angular.module('babyDoctorApp')
      * @param  {String} modalClass - (optional) class(es) to be applied to the modal
      * @return {Object}            - the instance $modal.open() returns
      */
-    function openModal(scope, modalClass) {
-      var modalScope = $rootScope.$new();
+    // function openModal(scope, modalClass) {
+    //   var modalScope = $rootScope.$new();
+    //   scope = scope || {};
+    //   modalClass = modalClass || 'modal-default';
+
+    //   angular.extend(modalScope, scope);
+
+    //   return $modal.open({
+    //     templateUrl: 'components/modal/modal.html',
+    //     windowClass: modalClass,
+    //     scope: modalScope
+    //   });
+    // }
+
+    // Public API here
+    return {
+
+        openModal: function(scope, modalClass){
+             var modalScope = $rootScope.$new();
       scope = scope || {};
       modalClass = modalClass || 'modal-default';
 
@@ -18,12 +35,12 @@ angular.module('babyDoctorApp')
       return $modal.open({
         templateUrl: 'components/modal/modal.html',
         windowClass: modalClass,
-        scope: modalScope
+        scope: modalScope,
+        controller: "MainCtrl"
       });
-    }
 
-    // Public API here
-    return {
+
+        },
 
       /* Confirmation modals */
       confirm: {
