@@ -9,104 +9,102 @@
 </center>
 <div class="container">
     <div class="row">
-        <div class="col-md-5">
-            <h2> Child Information</h2>
-            <ul class='list-group'>
-                <li class="list-group-item">Name - {{currentOrder.name}}</li>
-                <li class="list-group-item">Date Of Birth - {{currentOrder.dob}}</li>
-                <li class="list-group-item">SSN - {{currentOrder.ssn}}</li>
-                <li class="list-group-item">Conditions -{{currentOrder.conditions}} </li>
-                <li class="list-group-item">Sympotms -{{currentOrder.sympotoms}} </li>
-            </ul>
-
-
-        </div>
-
-        <div class="col-md-5">
-            <h2> Parent Information </h2>
-            <ul class='list-group'>
-                <li class="list-group-item">Name - {{ParentInfo.ParentName}}</li>
-                <li class="list-group-item">Address - {{ParentInfo.address.street1}}, {{ParentInfo.address.street2}}
-                    <br> {{ParentInfo.address.city}}, {{ParentInfo.address.state}}
-                    <br> {{ParentInfo.address.zip}} </li>
-                <li class="list-group-item">Phone - {{ParentInfo.phone}}</li>
-                <li class="list-group-item">Email Address- {{ParentInfo.email}}</li>
-                <li class="list-group-item">Account ID - {{ParentInfo.document_id}}</li>
-
-            </ul>
-
-
-        </div>
+        <md-card class="col-md-5">
+            <md-card-content>
+                <div>
+                    <h2> Child Information</h2>
+                    <ul class='list-group'>
+                        <li class="list-group-item">Name - {{currentOrder.name}}</li>
+                        <li class="list-group-item">Date Of Birth - {{currentOrder.dob}}</li>
+                        <li class="list-group-item">SSN - {{currentOrder.ssn}}</li>
+                        <li class="list-group-item">Conditions -{{currentOrder.conditions}} </li>
+                        <li class="list-group-item">Sympotms -{{currentOrder.sympotoms}} </li>
+                    </ul>
+                </div>
+            </md-card-content>
+        </md-card>
+        <md-card class="col-md-5">
+            <md-card-content>
+                <div>
+                    <h2> Parent Information </h2>
+                    <ul class='list-group'>
+                        <li class="list-group-item">Name - {{ParentInfo.ParentName}}</li>
+                        <li class="list-group-item">Address - {{ParentInfo.address.street1}}, {{ParentInfo.address.street2}}
+                            <br> {{ParentInfo.address.city}}, {{ParentInfo.address.state}}
+                            <br> {{ParentInfo.address.zip}} </li>
+                        <li class="list-group-item">Phone - {{ParentInfo.phone}}</li>
+                        <li class="list-group-item">Email Address- {{ParentInfo.email}}</li>
+                        <li class="list-group-item">Account ID - {{ParentInfo.document_id}}</li>
+                    </ul>
+                </div>
+            </md-card-content>
+        </md-card>
     </div>
 </div>
-
 <div class="container">
-
     <form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address">
-
-
-        <div class="input-field col s5">
+       <!--  <div class="input-field col s5">
             <textarea id="conditions" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.conditions"></textarea>
             <label class="active" for="city">Description Of Conditions</label>
-        </div>
+        </div> -->
+        <md-input-container>
+  <label>Description Of Conditions</label>
+  <textarea ng-model="DoctorFormForChild.conditions"></textarea>
+</md-input-container>
+  <md-input-container>
+  <label>Tests Performed</label>
+  <textarea ng-model="DoctorFormForChild.testsPerformed"></textarea>
+</md-input-container>
+  <md-input-container>
+  <label>Perscriptions</label>
+  <textarea ng-model="DoctorFormForChild.perscriptions"></textarea>
+</md-input-container>
 
 
 
-        <div class="input-field col s5">
+
+
+       <!--  <div class="input-field col s5">
             <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.testsPerformed"></textarea>
             <label class="active" for="city">Tests Performed</label>
         </div>
-
-
-
         <div class="input-field col s5">
             <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.perscriptions"></textarea>
             <label class="active" for="city">Perscriptions</label>
         </div>
-
-
-
-
-
-        <div class="row">
-            <button class=" col s5 btn waves-effect waves-light left" ng-click="truevaultSubmitDoctorForm()" name="action" ng-class="buttonColor">Submit
-            </button>
+        <div class="row"> -->
+       <center> <md-button class="md-accent md-raised md-hue-1"  ng-click="truevaultSubmitDoctorForm()" name="action" style="height:80px; width:200px; border-radius: 50px;"><span style="font-size: 30px; color: white; ">Submit</span></md-button></center>
+        
         </div>
     </form>
-
-
 </div>
 <br>
 <br>
 <br>
-
 <center>
-            <md-button class="md-primary md-raised" ng-click="showPastOrders()"><span ng-show="(!show)">View</span><span ng-show="(show)">Hide</span> Past Orders</md-button>
-    </center>
-    <br>
-    <br>
-    <div class="col-md-5" ng-repeat = 'order in pastOrders' ng-show= "(show)">
-            <ul class='list-group'>
-                <li class="list-group-item" style="font-size:20px; color: #3498DB; font-style: italic; font-weight: bold;">Name - {{order.ParentName}}</li>
-                <li class="list-group-item">Address - {{order.address.street1}}, {{order.address.street2}}
-                    <br> {{order.address.city}}, {{order.address.state}}
-                    <br> {{order.address.zip}} </li>
-                <li class="list-group-item">Phone - {{order.phone}}</li>
-                <li class="list-group-item">Email Address- {{order.email}}</li>
-                <li class="list-group-item">Account ID - {{order.document_id}}</li>
-                <li class="list-group-item">Status - {{order.status}} on {{order.dateClosed}}</li>
-
-            </ul>
-
-
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+    <md-button class="md-primary md-raised" ng-click="showPastOrders()"><span ng-show="(!show)">View</span><span ng-show="(show)">Hide</span> Past Orders</md-button>
+</center>
+<br>
+<br>
+<div class="col-md-5" ng-repeat='order in pastOrders' ng-show="(show)">
+    <ul class='list-group'>
+        <li class="list-group-item" style="font-size:20px; color: #3498DB; font-style: italic; font-weight: bold;">Name - {{order.ParentName}}</li>
+        <li class="list-group-item">Address - {{order.address.street1}}, {{order.address.street2}}
+            <br> {{order.address.city}}, {{order.address.state}}
+            <br> {{order.address.zip}} </li>
+        <li class="list-group-item">Phone - {{order.phone}}</li>
+        <li class="list-group-item">Email Address- {{order.email}}</li>
+        <li class="list-group-item">Account ID - {{order.document_id}}</li>
+        <li class="list-group-item">Status - {{order.status}} on {{order.dateClosed}}</li>
+    </ul>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
