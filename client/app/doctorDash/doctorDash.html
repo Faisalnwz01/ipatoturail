@@ -7,7 +7,7 @@
 <center>
     <h1>Current Order - {{ParentInfo.status}}</h1>
 </center>
-<div class="container">
+<div class="container makeitfullscreeen" style="{position: absolute; top: 0; left: 0;">
     <div class="row">
         <md-card class="col-md-5">
             <md-card-content>
@@ -43,28 +43,23 @@
 </div>
 <div class="container">
     <form class="col s12 ng-pristine ng-untouched ng-valid ng-valid-email" ng-submit="saveAddress(address)" ng-model="address">
-       <!--  <div class="input-field col s5">
+        <!--  <div class="input-field col s5">
             <textarea id="conditions" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.conditions"></textarea>
             <label class="active" for="city">Description Of Conditions</label>
         </div> -->
         <md-input-container>
-  <label>Description Of Conditions</label>
-  <textarea ng-model="DoctorFormForChild.conditions"></textarea>
-</md-input-container>
-  <md-input-container>
-  <label>Tests Performed</label>
-  <textarea ng-model="DoctorFormForChild.testsPerformed"></textarea>
-</md-input-container>
-  <md-input-container>
-  <label>Perscriptions</label>
-  <textarea ng-model="DoctorFormForChild.perscriptions"></textarea>
-</md-input-container>
-
-
-
-
-
-       <!--  <div class="input-field col s5">
+            <label>Description Of Conditions</label>
+            <textarea ng-model="DoctorFormForChild.conditions"></textarea>
+        </md-input-container>
+        <md-input-container>
+            <label>Tests Performed</label>
+            <textarea ng-model="DoctorFormForChild.testsPerformed"></textarea>
+        </md-input-container>
+        <md-input-container>
+            <label>Perscriptions</label>
+            <textarea ng-model="DoctorFormForChild.perscriptions"></textarea>
+        </md-input-container>
+        <!--  <div class="input-field col s5">
             <textarea id="symptoms" type="text" class="materialize-textarea validate ng-pristine ng-untouched ng-valid" ng-model="DoctorFormForChild.testsPerformed"></textarea>
             <label class="active" for="city">Tests Performed</label>
         </div>
@@ -73,10 +68,11 @@
             <label class="active" for="city">Perscriptions</label>
         </div>
         <div class="row"> -->
-       <center> <md-button class="md-accent md-raised md-hue-1"  ng-click="truevaultSubmitDoctorForm()" name="action" style="height:80px; width:200px; border-radius: 50px;"><span style="font-size: 30px; color: white; ">Submit</span></md-button></center>
-        
-        </div>
-    </form>
+        <center>
+            <md-button class="md-accent md-raised md-hue-1" ng-click="truevaultSubmitDoctorForm()" name="action" style="height:80px; width:200px; border-radius: 50px;"><span style="font-size: 30px; color: white; ">Submit</span></md-button>
+        </center>
+</div>
+</form>
 </div>
 <br>
 <br>
@@ -98,6 +94,10 @@
         <li class="list-group-item">Status - {{order.status}} on {{order.dateClosed}}</li>
     </ul>
 </div>
+
+ <md-button ng-click="openBottomSheet()">
+    Open a Bottom Sheet!
+  </md-button>
 <br>
 <br>
 <br>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('babyDoctorApp')
-    .controller('DoctorDashCtrl', function($scope, $http, Auth, $cookieStore) {
+    .controller('DoctorDashCtrl', function($scope, $http, Auth, $cookieStore, $mdBottomSheet) {
 
         $scope.show = false;
 
@@ -140,4 +140,11 @@ angular.module('babyDoctorApp')
 
 
         };
+
+         $scope.openBottomSheet = function() {
+    $mdBottomSheet.show({
+      template: '<md-bottom-sheet>Hello!</md-bottom-sheet>'
+    });
+  };
+
     })
