@@ -141,10 +141,4 @@ angular.module('babyDoctorApp')
 
         };
 
-         $scope.openBottomSheet = function() {
-    $mdBottomSheet.show({
-      template: '<md-bottom-sheet>Hello!</md-bottom-sheet>'
-    });
-  };
-
     })
