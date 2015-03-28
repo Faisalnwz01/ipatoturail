@@ -9,7 +9,7 @@ angular.module('babyDoctorApp')
         $scope.token = $cookieStore.get('token')
         $scope.child = {
             name: "",
-            dob: null,
+            dob: "",
             ssn: "",
             conditions: "",
             symptoms: "",
