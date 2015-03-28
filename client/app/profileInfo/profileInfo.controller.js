@@ -1,10 +1,20 @@
 'use strict';
 
 angular.module('babyDoctorApp')
-    .controller('ProfileInfoCtrl', function($scope, Auth, $http, $state, $cookieStore) {
+    .controller('ProfileInfoCtrl', function($scope, Auth, $http, $state, $cookieStore, $mdDialog) {
 
         $scope.getCurrentUser = Auth.getCurrentUser();
 
+ $scope.showAlert = function() {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .title('Sorry Service Not Avaiable')
+        .content('Currently BabyDoctor is Only Avaiable in Manhattan, Ny. Please Enter a Valid Manhattan Address')
+        .ariaLabel('Alert Dialog Demo')
+        .ok('Got it!')
+        
+    );
+  };
 
 
         $scope.token = $cookieStore.get('token')
@@ -35,19 +45,15 @@ angular.module('babyDoctorApp')
 
         }
         $scope._id = $scope.getCurrentUser._id
-        console.log($scope.user_id)
 
         $scope.postAddress = function(address) {
-            console.log($scope.getCurrentUser)
             $scope.getCurrentUser.address = address
-            if ($scope.manArray.indexOf(Number($scope.getCurrentUser.address.zip)) === -1) {
-                alert('no service here')
-            } else {
                 console.log($scope._id)
                 $http.put('api/users/' + $scope._id, $scope.getCurrentUser).then(function(user) {
                     console.log(user, "userrrrrrrrrr")
+                    $state.go('childInfo')
                 })
-            };
+            
         }
 
 
@@ -84,14 +90,14 @@ angular.module('babyDoctorApp')
             $http.post('/api/users/address', $scope.address).then(function(data) {
                 if (data.data === "Address is invalid") {
                     console.log("Address is invalid")
+                    $scope.showAlert()
                 } else {
                     $scope.postAddress($scope.address);
-
                     console.log("Address Is Goood")
-                    $state.go('childInfo')
                 }
             })
         }
+        
 
         $scope.user = {};
         $scope.errors = {};
