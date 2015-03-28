@@ -61,7 +61,7 @@ angular.module('babyDoctorApp')
                         // console.log(text, 'texttttttttttttttttt')
                     })
                 });
-                $state.go('childInfo')
+                $state.go('confirmationPage')
             }
 
         }
