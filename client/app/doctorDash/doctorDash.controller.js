@@ -67,7 +67,7 @@ angular.module('babyDoctorApp')
 
 //         $http.post('api/orders/getThisOrder', {number: $scope.getCurrentUser.address.phone}).then(function (data) {
 //           if (data) {
-//              $scope.pastOrders = []
+             $scope.pastOrders = []
 //            $scope.trueVaultDocId = data.data[0].document_id
 //            $scope.truevaultGetDocs($scope.trueVaultDocId)
 //           console.log(data)
