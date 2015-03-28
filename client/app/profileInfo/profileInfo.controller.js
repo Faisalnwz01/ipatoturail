@@ -48,6 +48,7 @@ angular.module('babyDoctorApp')
 
         $scope.postAddress = function(address) {
             $scope.getCurrentUser.address = address
+         
                 console.log($scope._id)
                 $http.put('api/users/' + $scope._id, $scope.getCurrentUser).then(function(user) {
                     console.log(user, "userrrrrrrrrr")
@@ -87,17 +88,26 @@ angular.module('babyDoctorApp')
         // $scope.truevaultPostDoc();
 
         $scope.submit = function() {
+            
+       if ($scope.manArray.indexOf(Number($scope.address.zip)) === -1) {
+                console.log('hit')
+                $scope.showAlert()
+            }
+
+            else{
+
             $http.post('/api/users/address', $scope.address).then(function(data) {
                 if (data.data === "Address is invalid") {
                     console.log("Address is invalid")
-                    $scope.showAlert()
                 } else {
                     $scope.postAddress($scope.address);
+
                     console.log("Address Is Goood")
+                    
                 }
             })
         }
-        
+        }
 
         $scope.user = {};
         $scope.errors = {};
