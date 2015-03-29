@@ -2,26 +2,38 @@
 <br>
 <br>
 <br>
-<div class="container">
+<div class="container ">
   <div class="row">
-    <div class="col-sm-12">
-      <h1>Login</h1>
-      <p>Accounts are reset on server restart from <code>server/config/seed.js</code>. Default account is <code>test@test.com</code> / <code>test</code></p>
-      <p>Admin account is <code>admin@admin.com</code> / <code>admin</code></p>
-    </div>
-    <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="login(form)" novalidate>
+<div>
+<md-content style="padding-top:60px;">
+    <md-card class="md-whiteframe-z5">
+        <md-toolbar class="md-warn">
+            <div class="md-toolbar-tools">
+                <h1 style="text-align:center;" class="md-flex">Login to get a Doctor!</h1>
+            </div>
+        </md-toolbar>
+        <md-content class="md-padding" >
+            <p style="text-align:left">
+            <h1>Please Login to Requst A Doctor</h1>
+            <p>All Our Doctors are screened to provide best Service possible.
+                <br> We promise to get you a doctor in under 40 minutes.
+                
+                <form class="form" name="form" ng-submit="login(form)" novalidate>
 
         <div class="form-group">
+         <md-input-container>
           <label>Email</label>
 
           <input type="email" name="email" class="form-control" ng-model="user.email" required>
+          </md-input-container>
         </div>
 
         <div class="form-group">
+        <md-input-container>
           <label>Password</label>
 
           <input type="password" name="password" class="form-control" ng-model="user.password" required>
+          </md-input-container>
         </div>
 
         <div class="form-group has-error">
@@ -47,6 +59,14 @@
         <hr>
     
       </form>
+        </md-content>
+    </md-card>
+</md-content>
+</div>
+
+
+    <div class="col-sm-12">
+      
     </div>
   </div>
   <hr>
