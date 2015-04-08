@@ -1,17 +1,15 @@
 <div class="col-sm-12" ng-hide="isLoggedIn()">
-    <h1>Login</h1>
+    <h1 style="color: rgb(240,90,109);">Login</h1>
     <form class="form" name="forms" ng-submit="login(forms)" novalidate>
         <div class="form-group">
-            <md-input-container>
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" ng-model="user.email" required>
-            </md-input-container>
+            
+                <input style="border:solid; border-color: #00007E; background-color: rgba(249, 189, 196, 0.24); border-width: 2px; border-radius: 1px;" placeholder="Email" type="email" name="email" class="form-control" ng-model="user.email" require>
+           
         </div>
         <div class="form-group">
-            <md-input-container>
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" ng-model="user.password" required>
-            </md-input-container>
+            
+                <input style="border:solid; border-color: #00007E; background-color: rgba(249, 189, 196, 0.24); border-width: 2px; border-radius: 1px;" placeholder="Password" type="password" name="password" class="form-control" ng-model="user.password" require>
+           
         </div>
         <div class="form-group has-error">
             <p class="help-block" ng-show="forms.email.$error.required && forms.password.$error.required && submitted">
@@ -23,11 +21,9 @@
             <p class="help-block">{{ errors.other }}</p>
         </div>
         <div>
-            <button class="btn btn-inverse btn-lg btn-login" type="submit">
-                Login
-            </button>
-            <a class="btn btn-default btn-lg btn-register" href="/signup">
-            Register
+            <button class="btn btn-primary btn-lg" style="border-radius: 10px; background-color: rgb(59,89,152); margin-right:20px" type="submit">LOGIN</button>
+            <a class="btn btn-lg" style=" border-radius: 10px; border-color:rgb(59,89,152); color: rgb(59,89,152); margin-right:20px; " href="/signup">
+            New User
           </a>
         </div>
         <hr>
