@@ -1,5 +1,5 @@
 <div class="navbar navbar-fixed-top navbar-default" style="background: rgba(255, 255, 255, 0); border-color: rgba(255, 255, 255, 0);"ng-controller="NavbarCtrl">
-      <strong><a href="/"><img src="assets/images/logo.png" alt="" class="img-responsive" style="margin-top: 5px; height = 85px; float:left;"/></a></strong>
+      <strong><a href="/"><img src="assets/images/logo.png" alt="" class="img-responsive" style="margin-top: 15px; height = 85px; float:left;"/></a></strong>
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
@@ -18,11 +18,11 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-      <a href="/login"> <md-button class="md-accent md-raised md-hue-1" style="height:46px; width:216px; border-radius: 50px;"><span style="font-size: 21px; color: white; ">Request A Doctor</span></md-button></a>
-        <li ><a href="/About">Our Doctors </a></li>
+     <li><a href="/login"> <button class="btn" style="color:#00007E; height:50px; width:200px; border:solid; border-color: #00007E; background-color: rgba(249, 189, 196, 0.24); border-width: 2px; border-radius:5px;"><span style="color:#00007E; ">Request A Doctor</span></button></a></li>
+     <!--    <li ><a href="/About">Our Doctors </a></li>
         <li><a href="/services">Our Services</a></li>
-        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
-        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li> -->
+        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login" style="margin-top: 10px; color:#00007E;">Log-In</a></li>
         <li ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().name }}</p> </li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span class="glyphicon glyphicon-cog"></span></a></li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
